@@ -25,28 +25,49 @@ inventario.forEach((producto)=>{
 
 /* FUNCION PARA AGREGAR UN PRODUCTO */
 
-function agregarProductos(nombre, cantidad, categoria, ubicacion, precio){
+function agregarProductos(nombre, categoria, precio, cantidad, ubicacion){
+
+    /*  BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
+
+    const productoExistente = inventario.find(p => p.nombre.toLowerCase() === nombre.toLowerCase());
+
+    if (productoExistente){
+
+        /* Si existe sumamos la cantidad */
+
+        productoExistente.cantidad += cantidad;
+        console.log(`Se actualizo la Cantidad de "${productoExistente.nombre}". Nueva cantidad: ${productoExistente.cantidad}`);
+    }else {
+
+        /* Si no existe, creamos un nuevo producto */
+    
+
 
     /* CREAMOS UN OBEJTO CON LOS DATOS DEL PRODUCTO */
 
     const producto = {
 
-        id: inventario.lenght + 1, // ID AUTOMATICO
+        id: inventario.length + 1, // ID AUTOMATICO
         nombre : nombre,
-        cantidad : cantidad,
         categoria : categoria,
-        ubicacion: ubicacion,
-        precio:precio
+        precio:precio,
+        cantidad : cantidad,
+        ubicacion: ubicacion
+        
     };
+
+    
 
     /* LO AGREGAMOS AL INVENTARIO */
 
     inventario.push(producto);
-    console.log(`Producto agregado : ${nombre}`);
+    console.log(`Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`);
+}
+
 }
 
 
 
-module.exports = {listarProductos};
+module.exports = {listarProductos,agregarProductos,inventario};
 
 
