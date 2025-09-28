@@ -68,6 +68,37 @@ function agregarProductos(nombre, categoria, precio, cantidad, ubicacion){
 
 
 
+/*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
+
+/* BUSCAR POR NOMBRE */
+
+function buscarProductoNombre(nombre){
+
+    if (inventario.length === 0){
+
+        console.log("No hay producto en el inventario.");
+        return;
+    }
+
+    const producto = inventario.find(item => item.nombre.toLowerCase()===nombre.toLowerCase());
+
+    if (producto){
+
+        console.log(`Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria} | Ubicacion: ${producto.ubicacion}`);
+    } else {
+
+        console.log(`Producto Nombre " ${nombre}" no encontrado.`);
+    }
+}
+
+/* BUSCAR POR ID */
+
+
+
+
+
+
+
 module.exports = {listarProductos,agregarProductos,inventario};
 
 
