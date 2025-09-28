@@ -93,12 +93,29 @@ function buscarProductoNombre(nombre){
 
 /* BUSCAR POR ID */
 
+function buscarProductoPorId(id){
+
+    if (inventario.length === 0) {
+
+        console.log("No hay producto en el inventario.");
+        return;
+    }
+
+    const producto = inventario.find(item=> item.id === id);
+    
+    if (producto) {
+
+        console.log(`Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria}| Ubicacion: ${producto.ubicacion}`);
+    } else {
+
+        console.log(`Producto con ID ${id} no encontrado.`);
+    }
+}
 
 
 
 
 
-
-module.exports = {listarProductos,agregarProductos,inventario};
+module.exports = {listarProductos,agregarProductos,buscarProductoNombre,buscarProductoPorId,inventario};
 
 
