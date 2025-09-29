@@ -12,17 +12,17 @@ agregarProductos("Bascula 150kg bernalito wifi","Basculas", 300.700, 500, "Estan
 agregarProductos("Balanza Precision 3000g","Balanzas", 600.700, 500, "Estante B2");
 agregarProductos("Balanza Precision 600g","Balanzas", 300.000, 500, "Estante B3");
 agregarProductos("Barra Ganadera","Ganaderia",1.000000, 40,"Estante D1");
-
+agregarProductos("Balanza Css 15kg","Balanzas",450.000,90,"Estante E1");
 
 /* LISTAMOS EL INVENTARIO */
 console.log("==== INVENTARIO ACTUAL ====");
 listarProductos();
 
 console.log("\n--- Buscar por ID ---");
-buscarProductoPorId(1);
+buscarProductoPorId(8);
 
 console.log("\n--- Buscar por Nombre --- ");
-buscarProductoNombre("Barra Ganadera");
+buscarProductoNombre("Balanza Css 15kg");
 
 
 
