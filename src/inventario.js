@@ -112,10 +112,53 @@ function buscarProductoPorId(id){
     }
 }
 
+/* FUNCION PARA ACTUALIZAR UN PRODUCTO */
+
+    function actualizarProducto(id, nuevosDatos){
+
+
+        if (inventario.lengt===0){
+
+            console.log("No hay productos en el inventario.");
+            return;
+        }
+
+        /* Buscar el producto por el ID */
+
+        const producto = inventario.find(item=> item.id === id);
+
+        if (producto){
+
+            /* Actualizamos los datos que nos pase en nuevosDatos */
+
+            Object.assign(producto, nuevosDatos);
+            console.log(`Producto Actualizado:`,producto);
+        } else {
+
+            console.log(`Producto con ID: ${id} no encontrado.`);
+        }
+    }
+
+    /* FUNCION PARA ELIMINAR PRODUCTO */
+
+    function eliminarProducto(id){
+
+        const index = inventario.findIndex(p => p.id === id);
+
+        if (index !== -1){
+
+            const eliminado = inventario.splice(index,1) [0];
+            console.log(`Producto Eliminado : ID: ${eliminado.id} | Nombre : ${eliminado.nombre}`);
+        } else {
+
+            console.log(`No se encontro el producto con el ID: ${id}`);
+        }
+    }
 
 
 
 
-module.exports = {listarProductos,agregarProductos,buscarProductoNombre,buscarProductoPorId,inventario};
+
+module.exports = {listarProductos,agregarProductos,buscarProductoNombre,buscarProductoPorId,actualizarProducto,eliminarProducto,inventario};
 
 
