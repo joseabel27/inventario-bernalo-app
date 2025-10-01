@@ -1,164 +1,149 @@
 let inventario = [];
 
-
 /* FUNCION PARA LISTAR TODOS LOS PRODUCTOS */
 
-function listarProductos(){
+function listarProductos() {
+  console.log("Inventario Actual:");
 
-    console.log("Inventario Actual:");
-
-    /* SI NO HAY PRODUCTOS, MOSTRAMOS UN MSJ */
-    if (inventario.length === 0){
+  /* SI NO HAY PRODUCTOS, MOSTRAMOS UN MSJ */
+  if (inventario.length === 0) {
     console.log("No hay productos en el inventario.");
     return;
-}
+  }
 
+  /* SI HAY PRODUCTOS, LO RECORREMOS UNO POR UNO */
 
-/* SI HAY PRODUCTOS, LO RECORREMOS UNO POR UNO */
-
-inventario.forEach((producto)=>{
-    console.log(`ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`
+  inventario.forEach((producto) => {
+    console.log(
+      `ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`
     );
-});
+  });
 }
-
 
 /* FUNCION PARA AGREGAR UN PRODUCTO */
 
-function agregarProductos(nombre, categoria, precio, cantidad, ubicacion){
+function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
+  /*  BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
 
-    /*  BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
+  const productoExistente = inventario.find(
+    (p) => p.nombre.toLowerCase() === nombre.toLowerCase()
+  );
 
-    const productoExistente = inventario.find(p => p.nombre.toLowerCase() === nombre.toLowerCase());
+  if (productoExistente) {
+    /* Si existe sumamos la cantidad */
 
-    if (productoExistente){
+    productoExistente.cantidad += cantidad;
+    console.log(
+      `Se actualizo la Cantidad de "${productoExistente.nombre}". Nueva cantidad: ${productoExistente.cantidad}`
+    );
+  } else {
+    /* Si no existe, creamos un nuevo producto */
 
-        /* Si existe sumamos la cantidad */
-
-        productoExistente.cantidad += cantidad;
-        console.log(`Se actualizo la Cantidad de "${productoExistente.nombre}". Nueva cantidad: ${productoExistente.cantidad}`);
-    }else {
-
-        /* Si no existe, creamos un nuevo producto */
-    
-
-
-    /* CREAMOS UN OBEJTO CON LOS DATOS DEL PRODUCTO */
+    /* CREAMOS UN OBJETO CON LOS DATOS DEL PRODUCTO */
 
     const producto = {
-
-        id: inventario.length + 1, // ID AUTOMATICO
-        nombre : nombre,
-        categoria : categoria,
-        precio:precio,
-        cantidad : cantidad,
-        ubicacion: ubicacion
-        
+      id: inventario.length + 1, // ID AUTOMATICO
+      nombre: nombre,
+      categoria: categoria,
+      precio: precio,
+      cantidad: cantidad,
+      ubicacion: ubicacion,
     };
-
-    
 
     /* LO AGREGAMOS AL INVENTARIO */
 
     inventario.push(producto);
-    console.log(`Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`);
+    console.log(
+      `Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`
+    );
+  }
 }
-
-}
-
-
 
 /*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
 
 /* BUSCAR POR NOMBRE */
 
-function buscarProductoNombre(nombre){
+function buscarProductoNombre(nombre) {
+  if (inventario.length === 0) {
+    console.log("No hay producto en el inventario.");
+    return;
+  }
 
-    if (inventario.length === 0){
+  const producto = inventario.find(
+    (item) => item.nombre.toLowerCase() === nombre.toLowerCase()
+  );
 
-        console.log("No hay producto en el inventario.");
-        return;
-    }
-
-    const producto = inventario.find(item => item.nombre.toLowerCase()===nombre.toLowerCase());
-
-    if (producto){
-
-        console.log(`Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria} | Ubicacion: ${producto.ubicacion}`);
-    } else {
-
-        console.log(`Producto Nombre " ${nombre}" no encontrado.`);
-    }
+  if (producto) {
+    console.log(
+      `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria} | Ubicacion: ${producto.ubicacion}`
+    );
+  } else {
+    console.log(`Producto Nombre " ${nombre}" no encontrado.`);
+  }
 }
 
 /* BUSCAR POR ID */
 
-function buscarProductoPorId(id){
+function buscarProductoPorId(id) {
+  if (inventario.length === 0) {
+    console.log("No hay producto en el inventario.");
+    return;
+  }
 
-    if (inventario.length === 0) {
+  const producto = inventario.find((item) => item.id === id);
 
-        console.log("No hay producto en el inventario.");
-        return;
-    }
-
-    const producto = inventario.find(item=> item.id === id);
-    
-    if (producto) {
-
-        console.log(`Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria}| Ubicacion: ${producto.ubicacion}`);
-    } else {
-
-        console.log(`Producto con ID ${id} no encontrado.`);
-    }
+  if (producto) {
+    console.log(
+      `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria}| Ubicacion: ${producto.ubicacion}`
+    );
+  } else {
+    console.log(`Producto con ID ${id} no encontrado.`);
+  }
 }
 
 /* FUNCION PARA ACTUALIZAR UN PRODUCTO */
 
-    function actualizarProducto(id, nuevosDatos){
+function actualizarProducto(id, nuevosDatos) {
+  if (inventario.lengt === 0) {
+    console.log("No hay productos en el inventario.");
+    return;
+  }
 
+  /* Buscar el producto por el ID */
 
-        if (inventario.lengt===0){
+  const producto = inventario.find((item) => item.id === id);
 
-            console.log("No hay productos en el inventario.");
-            return;
-        }
+  if (producto) {
+    /* Actualizamos los datos que nos pase en nuevosDatos */
 
-        /* Buscar el producto por el ID */
+    Object.assign(producto, nuevosDatos);
+    console.log(`Producto Actualizado:`, producto);
+  } else {
+    console.log(`Producto con ID: ${id} no encontrado.`);
+  }
+}
 
-        const producto = inventario.find(item=> item.id === id);
+/* FUNCION PARA ELIMINAR PRODUCTO */
 
-        if (producto){
+function eliminarProducto(id) {
+  const index = inventario.findIndex((p) => p.id === id);
 
-            /* Actualizamos los datos que nos pase en nuevosDatos */
+  if (index !== -1) {
+    const eliminado = inventario.splice(index, 1)[0];
+    console.log(
+      `Producto Eliminado : ID: ${eliminado.id} | Nombre : ${eliminado.nombre}`
+    );
+  } else {
+    console.log(`No se encontro el producto con el ID: ${id}`);
+  }
+}
 
-            Object.assign(producto, nuevosDatos);
-            console.log(`Producto Actualizado:`,producto);
-        } else {
-
-            console.log(`Producto con ID: ${id} no encontrado.`);
-        }
-    }
-
-    /* FUNCION PARA ELIMINAR PRODUCTO */
-
-    function eliminarProducto(id){
-
-        const index = inventario.findIndex(p => p.id === id);
-
-        if (index !== -1){
-
-            const eliminado = inventario.splice(index,1) [0];
-            console.log(`Producto Eliminado : ID: ${eliminado.id} | Nombre : ${eliminado.nombre}`);
-        } else {
-
-            console.log(`No se encontro el producto con el ID: ${id}`);
-        }
-    }
-
-
-
-
-
-module.exports = {listarProductos,agregarProductos,buscarProductoNombre,buscarProductoPorId,actualizarProducto,eliminarProducto,inventario};
-
-
+module.exports = {
+  listarProductos,
+  agregarProductos,
+  buscarProductoNombre,
+  buscarProductoPorId,
+  actualizarProducto,
+  eliminarProducto,
+  inventario,
+};

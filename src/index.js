@@ -16,6 +16,7 @@ agregarProductos("Balanza Css 15kg","Balanzas",450.000,90,"Estante E1");
 agregarProductos("Bascula 300kg bernalo pedestal","Bascula",600.000,400,"Estanteria F1");
 agregarProductos("Dinamometro 1 Tonelada","Balanzas",1000.000,10,"Estanteria G1");
 agregarProductos("Celda de carga 400kg","Celdas",85.000,400,"Estanteria H1");
+agregarProductos("Pelas papas","Horeca",150.000, 100, "Estante H2");
 
 /* LISTAMOS EL INVENTARIO */
 console.log("==== INVENTARIO ACTUAL ====");
@@ -32,7 +33,7 @@ console.log("\n--- Buscar por Nombre --- ");
 buscarProductoNombre("Balanza Css 15kg");
 
 /* ACTUALIZAMOS EL PRODUCTO */
-actualizarProducto(10, {cantidad:100, categoria:"Dinamometros", ubicacion:"Estanteria G2"});
+actualizarProducto(10, {cantidad:200, categoria:"Dinamometros", ubicacion:"Estanteria G2"});
 
 /* Volvemos a listar para ver el cambio */
 listarProductos();
