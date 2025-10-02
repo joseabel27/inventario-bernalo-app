@@ -104,7 +104,7 @@ function buscarProductoPorId(id) {
 /* FUNCION PARA ACTUALIZAR UN PRODUCTO */
 
 function actualizarProducto(id, nuevosDatos) {
-  if (inventario.lengt === 0) {
+  if (inventario.length === 0) {
     console.log("No hay productos en el inventario.");
     return;
   }
