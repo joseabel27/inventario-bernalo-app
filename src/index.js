@@ -1,6 +1,10 @@
 /* IMPORTAR EL INVENTARIO EN INDEX */
 
-const {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto} = require ("./inventario");
+const {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,} = require ("./inventario");
+
+const {validarNombreProducto}
+ = require("./validaciones");
+
 
 console.log("==== SISTEMA DE INVENTARIO ====");
 
@@ -17,6 +21,8 @@ agregarProductos("Bascula 300kg bernalo pedestal","Bascula",600.000,400,"Estante
 agregarProductos("Dinamometro 1 Tonelada","Balanzas",1000.000,10,"Estanteria G1");
 agregarProductos("Celda de carga 400kg","Celdas",85.000,400,"Estanteria H1");
 agregarProductos("Pelas papas","Horeca",150.000, 100, "Estante H2");
+agregarProductos("Tarjeta wifi Par","Repuestos",60.000,200,"Estanteria I1");
+agregarProductos("Display KL1R","Repuestos",45.000,200,"Estanteria I2");
 
 /* LISTAMOS EL INVENTARIO */
 console.log("==== INVENTARIO ACTUAL ====");
@@ -25,15 +31,19 @@ listarProductos();
 /* BUSCACMOS POR ID */
 
 console.log("\n--- Buscar por ID ---");
-buscarProductoPorId(8);
+buscarProductoPorId(4);
 
 /* BUSCAMOS POR NOMBRE DEL PRODUCTO */
 
 console.log("\n--- Buscar por Nombre --- ");
-buscarProductoNombre("Balanza Css 15kg");
+buscarProductoNombre("Dinamometro 1 Tonelada");
+
+/* VALIDAD PRODUCTO POR NOMBRE */
+validarNombreProducto(""); 
+
 
 /* ACTUALIZAMOS EL PRODUCTO */
-actualizarProducto(10, {cantidad:200, categoria:"Dinamometros", ubicacion:"Estanteria G2"});
+actualizarProducto(11, {cantidad:2, categoria:"Dinamometros", ubicacion:"Estanteria I2"});
 
 /* Volvemos a listar para ver el cambio */
 listarProductos();
@@ -41,7 +51,7 @@ listarProductos();
 
 /* ELIMINAMOS UN PRODUCTO */
 console.log("\n--- Eliminar Producto ---");
-eliminarProducto(11);
+eliminarProducto(5);
 listarProductos();
 
 

@@ -1,3 +1,6 @@
+const {validarNombreProducto} = require("./validaciones");
+
+
 let inventario = [];
 
 /* FUNCION PARA LISTAR TODOS LOS PRODUCTOS */
@@ -59,6 +62,8 @@ function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
   }
 }
 
+
+
 /*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
 
 /* BUSCAR POR NOMBRE */
@@ -72,6 +77,15 @@ function buscarProductoNombre(nombre) {
   const producto = inventario.find(
     (item) => item.nombre.toLowerCase() === nombre.toLowerCase()
   );
+
+  /* VALIDAR ANTES DE BUSCAR */
+
+  if (!validarNombreProducto(nombre)){
+
+    return; /*  No sigue si la validacion falla */
+  }
+
+
 
   if (producto) {
     console.log(
@@ -145,5 +159,6 @@ module.exports = {
   buscarProductoPorId,
   actualizarProducto,
   eliminarProducto,
+  validarNombreProducto,
   inventario,
 };
