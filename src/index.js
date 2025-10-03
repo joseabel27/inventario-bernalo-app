@@ -28,6 +28,11 @@ agregarProductos("Display KL1R","Repuestos",45.000,200,"Estanteria I2");
 console.log("==== INVENTARIO ACTUAL ====");
 listarProductos();
 
+
+/* VALIDAD PRODUCTO POR NOMBRE */
+validarNombreProducto(); 
+
+
 /* BUSCACMOS POR ID */
 
 console.log("\n--- Buscar por ID ---");
@@ -36,10 +41,7 @@ buscarProductoPorId(4);
 /* BUSCAMOS POR NOMBRE DEL PRODUCTO */
 
 console.log("\n--- Buscar por Nombre --- ");
-buscarProductoNombre("Dinamometro 1 Tonelada");
-
-/* VALIDAD PRODUCTO POR NOMBRE */
-validarNombreProducto(""); 
+buscarProductoNombre("Tarjeta wifi par");
 
 
 /* ACTUALIZAMOS EL PRODUCTO */

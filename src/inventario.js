@@ -64,7 +64,10 @@ function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
 
 
 
-/*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
+
+
+
+  /*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
 
 /* BUSCAR POR NOMBRE */
 
@@ -74,16 +77,18 @@ function buscarProductoNombre(nombre) {
     return;
   }
 
-  const producto = inventario.find(
-    (item) => item.nombre.toLowerCase() === nombre.toLowerCase()
-  );
-
-  /* VALIDAR ANTES DE BUSCAR */
+    /* VALIDAR ANTES DE BUSCAR */
 
   if (!validarNombreProducto(nombre)){
 
     return; /*  No sigue si la validacion falla */
   }
+
+
+  const producto = inventario.find(
+    (item) => item.nombre.toLowerCase() === nombre.toLowerCase()
+  );
+
 
 
 
