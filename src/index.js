@@ -23,6 +23,7 @@ agregarProductos("Celda de carga 400kg","Celdas",85.000,400,"Estanteria H1");
 agregarProductos("Pelas papas","Horeca",150.000, 100, "Estante H2");
 agregarProductos("Tarjeta wifi Par","Repuestos",60.000,200,"Estanteria I1");
 agregarProductos("Display KL1R","Repuestos",45.000,200,"Estanteria I2");
+agregarProductos("Celda de carga 200kg","Celdas",40.000, 200,"Estanteria H1");
 
 /* LISTAMOS EL INVENTARIO */
 console.log("==== INVENTARIO ACTUAL ====");
@@ -41,11 +42,11 @@ buscarProductoPorId(4);
 /* BUSCAMOS POR NOMBRE DEL PRODUCTO */
 
 console.log("\n--- Buscar por Nombre --- ");
-buscarProductoNombre("Tarjeta wifi par");
+buscarProductoNombre("Pelas papas");
 
 
 /* ACTUALIZAMOS EL PRODUCTO */
-actualizarProducto(11, {cantidad:2, categoria:"Dinamometros", ubicacion:"Estanteria I2"});
+actualizarProducto(7, {cantidad:2});
 
 /* Volvemos a listar para ver el cambio */
 listarProductos();
@@ -53,7 +54,9 @@ listarProductos();
 
 /* ELIMINAMOS UN PRODUCTO */
 console.log("\n--- Eliminar Producto ---");
-eliminarProducto(5);
+eliminarProducto();
 listarProductos();
+
+
 
 
