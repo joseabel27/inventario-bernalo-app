@@ -1,9 +1,10 @@
 /* IMPORTAR EL INVENTARIO EN INDEX */
 
-const {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,} = require ("./inventario");
+import {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,} from "./modules/inventario.js";
 
-const {validarNombreProducto}
- = require("./validaciones");
+import {validarNombreProducto} from "./modules/validaciones.js";
+
+import {registrarVenta,listarVentas} from "./modules/ventas.js";
 
 
 console.log("==== SISTEMA DE INVENTARIO ====");
@@ -24,6 +25,7 @@ agregarProductos("Pelas papas","Horeca",150.000, 100, "Estante H2");
 agregarProductos("Tarjeta wifi Par","Repuestos",60.000,200,"Estanteria I1");
 agregarProductos("Display KL1R","Repuestos",45.000,200,"Estanteria I2");
 agregarProductos("Celda de carga 200kg","Celdas",40.000, 200,"Estanteria H1");
+agregarProductos("Adaptador 9 voltios","Adaptadores",25.000,20,"Estante J1");
 
 /* LISTAMOS EL INVENTARIO */
 console.log("==== INVENTARIO ACTUAL ====");
@@ -37,7 +39,7 @@ validarNombreProducto();
 /* BUSCACMOS POR ID */
 
 console.log("\n--- Buscar por ID ---");
-buscarProductoPorId(4);
+buscarProductoPorId(15);
 
 /* BUSCAMOS POR NOMBRE DEL PRODUCTO */
 
@@ -54,7 +56,14 @@ listarProductos();
 
 /* ELIMINAMOS UN PRODUCTO */
 console.log("\n--- Eliminar Producto ---");
-eliminarProducto();
+eliminarProducto(14);
+listarProductos();
+
+
+/* Registrar una Venta */
+
+registrarVenta(5,100,"Adony");
+listarVentas();
 listarProductos();
 
 

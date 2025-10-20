@@ -1,11 +1,12 @@
-const {validarNombreProducto} = require("./validaciones");
+import {validarNombreProducto} from "./validaciones.js";
+
 
 
 let inventario = [];
 
 /* FUNCION PARA LISTAR TODOS LOS PRODUCTOS */
 
-function listarProductos() {
+export function listarProductos() {
   console.log("Inventario Actual:");
 
   /* SI NO HAY PRODUCTOS, MOSTRAMOS UN MSJ */
@@ -25,7 +26,7 @@ function listarProductos() {
 
 /* FUNCION PARA AGREGAR UN PRODUCTO */
 
-function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
+export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
   /*  BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
 
   const productoExistente = inventario.find(
@@ -71,7 +72,7 @@ function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
 
 /* BUSCAR POR NOMBRE */
 
-function buscarProductoNombre(nombre) {
+export function buscarProductoNombre(nombre) {
   if (inventario.length === 0) {
     console.log("No hay producto en el inventario.");
     return;
@@ -103,10 +104,10 @@ function buscarProductoNombre(nombre) {
 
 /* BUSCAR POR ID */
 
-function buscarProductoPorId(id) {
+export function buscarProductoPorId(id) {
   if (inventario.length === 0) {
     console.log("No hay producto en el inventario.");
-    return;
+    return null;
   }
 
   const producto = inventario.find((item) => item.id === id);
@@ -115,6 +116,9 @@ function buscarProductoPorId(id) {
     console.log(
       `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria}| Ubicacion: ${producto.ubicacion}`
     );
+
+    return producto;
+    
   } else {
     console.log(`Producto con ID ${id} no encontrado.`);
   }
@@ -122,7 +126,7 @@ function buscarProductoPorId(id) {
 
 /* FUNCION PARA ACTUALIZAR UN PRODUCTO */
 
-function actualizarProducto(id, nuevosDatos) {
+export function actualizarProducto(id, nuevosDatos) {
   if (inventario.length === 0) {
     console.log("No hay productos en el inventario.");
     return;
@@ -144,7 +148,7 @@ function actualizarProducto(id, nuevosDatos) {
 
 /* FUNCION PARA ELIMINAR PRODUCTO */
 
-function eliminarProducto(id) {
+export function eliminarProducto(id) {
   const index = inventario.findIndex((p) => p.id === id);
 
   if (index !== -1) {
@@ -157,13 +161,4 @@ function eliminarProducto(id) {
   }
 }
 
-module.exports = {
-  listarProductos,
-  agregarProductos,
-  buscarProductoNombre,
-  buscarProductoPorId,
-  actualizarProducto,
-  eliminarProducto,
-  validarNombreProducto,
-  inventario,
-};
+export {inventario};
