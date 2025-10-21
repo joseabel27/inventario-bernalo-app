@@ -7,6 +7,8 @@ import {validarNombreProducto} from "./modules/validaciones.js";
 import {registrarVenta,listarVentas} from "./modules/ventas.js";
 
 
+
+
 console.log("==== SISTEMA DE INVENTARIO ====");
 
 /* AGREGAMOS LOS PRODUCTOS DE PRUEBA */

@@ -1,8 +1,48 @@
-import {validarNombreProducto} from "./validaciones.js";
+
+import fs from "fs";
+import path from "path";
+import { validarNombreProducto } from "./validaciones.js";
+
+const RUTA_ARCHIVO = path.resolve("./src/data/inventario.json");
+
+//======CARGADO Y GUARDADO AUTOMATICO=======
+
+function cargarInventarioDesdeArchivo() {
+  try {
+
+    if (fs.existsSync(RUTA_ARCHIVO)) {
+      const data = fs.readFileSync(RUTA_ARCHIVO, "utf8");
+      return JSON.parse(data);
+    } else {
+
+      return [];
+    }
+
+  } catch (error) {
+
+    console.log("Error al cargar el inventario:", error.message);
+    return [];
+  }
+
+}
+
+function guardarInventarioEnArchivo(){
+
+  try{
+    console.log("Guardando Inventario en :",RUTA_ARCHIVO);
+    fs.writeFileSync(RUTA_ARCHIVO, JSON.stringify(inventario, null, 2));
+    console.log("Inventario guardado correctamente");
+  
+  } catch (error){
+
+    console.error("Error a guardar el inventario:",error.message);
+  }
+}
+
+let inventario = cargarInventarioDesdeArchivo();
 
 
 
-let inventario = [];
 
 /* FUNCION PARA LISTAR TODOS LOS PRODUCTOS */
 
@@ -61,14 +101,12 @@ export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion)
       `Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`
     );
   }
+
+  guardarInventarioEnArchivo(); // GUARDAR CAMBIOS
 }
 
 
-
-
-
-
-  /*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
+/*  FUNCION PARA BUSCAR PRODCUTOS EN EL INVENTARIO  POR NOMBRE Y POR ID */
 
 /* BUSCAR POR NOMBRE */
 
@@ -78,9 +116,9 @@ export function buscarProductoNombre(nombre) {
     return;
   }
 
-    /* VALIDAR ANTES DE BUSCAR */
+  /* VALIDAR ANTES DE BUSCAR */
 
-  if (!validarNombreProducto(nombre)){
+  if (!validarNombreProducto(nombre)) {
 
     return; /*  No sigue si la validacion falla */
   }
@@ -118,7 +156,7 @@ export function buscarProductoPorId(id) {
     );
 
     return producto;
-    
+
   } else {
     console.log(`Producto con ID ${id} no encontrado.`);
   }
@@ -161,4 +199,8 @@ export function eliminarProducto(id) {
   }
 }
 
-export {inventario};
+export function obtenerInventario () {
+return inventario;
+
+}
+
