@@ -64,7 +64,7 @@ listarProductos();
 
 /* Registrar una Venta */
 
-registrarVenta(5,100,"Adony");
+registrarVenta(2,100,"Marlon");
 listarVentas();
 listarProductos();
 
