@@ -179,6 +179,8 @@ export function actualizarProducto(id, nuevosDatos) {
 
     Object.assign(producto, nuevosDatos);
     console.log(`Producto Actualizado:`, producto);
+
+    guardarInventarioEnArchivo();
   } else {
     console.log(`Producto con ID: ${id} no encontrado.`);
   }

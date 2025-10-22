@@ -58,13 +58,13 @@ listarProductos();
 
 /* ELIMINAMOS UN PRODUCTO */
 console.log("\n--- Eliminar Producto ---");
-eliminarProducto(14);
+eliminarProducto();
 listarProductos();
 
 
 /* Registrar una Venta */
 
-registrarVenta(2,100,"Marlon");
+registrarVenta(15,1,"Marlon");
 listarVentas();
 listarProductos();
 

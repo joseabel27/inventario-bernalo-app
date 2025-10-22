@@ -4,7 +4,7 @@
     "nombre": "Bascula 150kg bernalo pedestal",
     "categoria": "Basculas",
     "precio": 392.7,
-    "cantidad": 500,
+    "cantidad": 5500,
     "ubicacion": "Estante A1"
   },
   {
@@ -12,7 +12,7 @@
     "nombre": "Bascula 150kg bernalo wifi",
     "categoria": "Basculas",
     "precio": 400,
-    "cantidad": 1000,
+    "cantidad": 11000,
     "ubicacion": "Estante A2"
   },
   {
@@ -20,7 +20,7 @@
     "nombre": "Bascula 150kg bernalito pedestal",
     "categoria": "Basculas",
     "precio": 250.7,
-    "cantidad": 100,
+    "cantidad": 1100,
     "ubicacion": "Estante A3"
   },
   {
@@ -28,7 +28,7 @@
     "nombre": "Bascula 150kg bernalito wifi",
     "categoria": "Basculas",
     "precio": 300.7,
-    "cantidad": 500,
+    "cantidad": 5500,
     "ubicacion": "Estante B1"
   },
   {
@@ -36,7 +36,7 @@
     "nombre": "Balanza Precision 3000g",
     "categoria": "Balanzas",
     "precio": 600.7,
-    "cantidad": 500,
+    "cantidad": 5500,
     "ubicacion": "Estante B2"
   },
   {
@@ -44,7 +44,7 @@
     "nombre": "Balanza Precision 600g",
     "categoria": "Balanzas",
     "precio": 300,
-    "cantidad": 500,
+    "cantidad": 5500,
     "ubicacion": "Estante B3"
   },
   {
@@ -52,7 +52,7 @@
     "nombre": "Barra Ganadera",
     "categoria": "Ganaderia",
     "precio": 1,
-    "cantidad": 40,
+    "cantidad": 2,
     "ubicacion": "Estante D1"
   },
   {
@@ -60,7 +60,7 @@
     "nombre": "Balanza Css 15kg",
     "categoria": "Balanzas",
     "precio": 450,
-    "cantidad": 90,
+    "cantidad": 990,
     "ubicacion": "Estante E1"
   },
   {
@@ -68,7 +68,7 @@
     "nombre": "Bascula 300kg bernalo pedestal",
     "categoria": "Bascula",
     "precio": 600,
-    "cantidad": 400,
+    "cantidad": 4400,
     "ubicacion": "Estanteria F1"
   },
   {
@@ -76,7 +76,7 @@
     "nombre": "Dinamometro 1 Tonelada",
     "categoria": "Balanzas",
     "precio": 1000,
-    "cantidad": 10,
+    "cantidad": 110,
     "ubicacion": "Estanteria G1"
   },
   {
@@ -84,7 +84,7 @@
     "nombre": "Celda de carga 400kg",
     "categoria": "Celdas",
     "precio": 85,
-    "cantidad": 400,
+    "cantidad": 4400,
     "ubicacion": "Estanteria H1"
   },
   {
@@ -92,7 +92,7 @@
     "nombre": "Pelas papas",
     "categoria": "Horeca",
     "precio": 150,
-    "cantidad": 100,
+    "cantidad": 1100,
     "ubicacion": "Estante H2"
   },
   {
@@ -100,23 +100,15 @@
     "nombre": "Tarjeta wifi Par",
     "categoria": "Repuestos",
     "precio": 60,
-    "cantidad": 200,
+    "cantidad": 2200,
     "ubicacion": "Estanteria I1"
-  },
-  {
-    "id": 14,
-    "nombre": "Display KL1R",
-    "categoria": "Repuestos",
-    "precio": 45,
-    "cantidad": 200,
-    "ubicacion": "Estanteria I2"
   },
   {
     "id": 15,
     "nombre": "Celda de carga 200kg",
     "categoria": "Celdas",
     "precio": 40,
-    "cantidad": 200,
+    "cantidad": 2191,
     "ubicacion": "Estanteria H1"
   },
   {
@@ -124,7 +116,15 @@
     "nombre": "Adaptador 9 voltios",
     "categoria": "Adaptadores",
     "precio": 25,
-    "cantidad": 20,
+    "cantidad": 220,
     "ubicacion": "Estante J1"
+  },
+  {
+    "id": 16,
+    "nombre": "Display KL1R",
+    "categoria": "Repuestos",
+    "precio": 45,
+    "cantidad": 1600,
+    "ubicacion": "Estanteria I2"
   }
 ]
