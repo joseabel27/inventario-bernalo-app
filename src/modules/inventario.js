@@ -86,7 +86,7 @@ export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion)
     /* CREAMOS UN OBJETO CON LOS DATOS DEL PRODUCTO */
 
     const producto = {
-      id: inventario.length + 1, // ID AUTOMATICO
+      id: inventario.length > 0 ? Math.max(...inventario.map(p => p.id)) + 1 : 1, // ID AUTOMATICO
       nombre: nombre,
       categoria: categoria,
       precio: precio,
