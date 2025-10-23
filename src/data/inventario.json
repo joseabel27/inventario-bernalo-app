@@ -5,7 +5,8 @@
     "categoria": "Basculas",
     "precio": 392.7,
     "cantidad": 500,
-    "ubicacion": "Estante A1"
+    "ubicacion": "Estante A1",
+    "stockMinimo": 200
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "categoria": "Basculas",
     "precio": 400,
     "cantidad": 1000,
-    "ubicacion": "Estante A2"
+    "ubicacion": "Estante A2",
+    "stockMinimo": 450
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "categoria": "Basculas",
     "precio": 250.7,
     "cantidad": 100,
-    "ubicacion": "Estante A3"
+    "ubicacion": "Estante A3",
+    "stockMinimo": 45
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "categoria": "Basculas",
     "precio": 300.7,
     "cantidad": 500,
-    "ubicacion": "Estante B1"
+    "ubicacion": "Estante B1",
+    "stockMinimo": 245
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "categoria": "Balanzas",
     "precio": 600.7,
     "cantidad": 500,
-    "ubicacion": "Estante B2"
+    "ubicacion": "Estante B2",
+    "stockMinimo": 245
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "categoria": "Balanzas",
     "precio": 300,
     "cantidad": 500,
-    "ubicacion": "Estante B3"
+    "ubicacion": "Estante B3",
+    "stockMinimo": 200
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "categoria": "Ganaderia",
     "precio": 1,
     "cantidad": 40,
-    "ubicacion": "Estante D1"
+    "ubicacion": "Estante D1",
+    "stockMinimo": 15
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "categoria": "Balanzas",
     "precio": 450,
     "cantidad": 90,
-    "ubicacion": "Estante E1"
+    "ubicacion": "Estante E1",
+    "stockMinimo": 40
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "categoria": "Bascula",
     "precio": 600,
     "cantidad": 400,
-    "ubicacion": "Estanteria F1"
+    "ubicacion": "Estanteria F1",
+    "stockMinimo": 150
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "categoria": "Balanzas",
     "precio": 1000,
     "cantidad": 10,
-    "ubicacion": "Estanteria G1"
+    "ubicacion": "Estanteria G1",
+    "stockMinimo": 4
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "categoria": "Celdas",
     "precio": 85,
     "cantidad": 400,
-    "ubicacion": "Estanteria H1"
+    "ubicacion": "Estanteria H1",
+    "stockMinimo": 150
   },
   {
     "id": 12,
@@ -93,7 +104,8 @@
     "categoria": "Horeca",
     "precio": 150,
     "cantidad": 100,
-    "ubicacion": "Estante H2"
+    "ubicacion": "Estante H2",
+    "stockMinimo": 45
   },
   {
     "id": 13,
@@ -101,7 +113,8 @@
     "categoria": "Repuestos",
     "precio": 60,
     "cantidad": 200,
-    "ubicacion": "Estanteria I1"
+    "ubicacion": "Estanteria I1",
+    "stockMinimo": 95
   },
   {
     "id": 14,
@@ -109,22 +122,25 @@
     "categoria": "Repuestos",
     "precio": 45,
     "cantidad": 200,
-    "ubicacion": "Estanteria I2"
+    "ubicacion": "Estanteria I2",
+    "stockMinimo": 95
   },
   {
     "id": 15,
     "nombre": "Celda de carga 200kg",
     "categoria": "Celdas",
     "precio": 40,
-    "cantidad": 100,
-    "ubicacion": "Estanteria H1"
+    "cantidad": 50,
+    "ubicacion": "Estanteria H1",
+    "stockMinimo": 95
   },
   {
     "id": 16,
     "nombre": "Adaptador 9 voltios",
     "categoria": "Adaptadores",
     "precio": 25,
-    "cantidad": 16,
-    "ubicacion": "Estante J1"
+    "cantidad": 20,
+    "ubicacion": "Estante J1",
+    "stockMinimo": 8
   }
 ]

@@ -59,14 +59,14 @@ export function listarProductos() {
 
   inventario.forEach((producto) => {
     console.log(
-      `ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`
+      `ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}|Stock Minimo:${producto.stockMinimo}`
     );
   });
 }
 
 /* FUNCION PARA AGREGAR UN PRODUCTO */
 
-export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion) {
+export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion,stockMinimo) {
   /*  BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
 
   const productoExistente = inventario.find(
@@ -92,13 +92,14 @@ export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion)
       precio: precio,
       cantidad: cantidad,
       ubicacion: ubicacion,
+      stockMinimo
     };
 
     /* LO AGREGAMOS AL INVENTARIO */
 
     inventario.push(producto);
     console.log(
-      `Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion}`
+      `Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion} | Stock Minimo:${producto.stockMinimo}`
     );
   }
 
@@ -133,7 +134,7 @@ export function buscarProductoNombre(nombre) {
 
   if (producto) {
     console.log(
-      `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria} | Ubicacion: ${producto.ubicacion}`
+      `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria} | Ubicacion: ${producto.ubicacion}|Stock Minimo:${producto.stockMinimo}`
     );
   } else {
     console.log(`Producto Nombre " ${nombre}" no encontrado.`);
@@ -152,7 +153,7 @@ export function buscarProductoPorId(id) {
 
   if (producto) {
     console.log(
-      `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria}| Ubicacion: ${producto.ubicacion}`
+      `Producto encontrado: ID: ${producto.id} | Nombre: ${producto.nombre} | Cantidad: ${producto.cantidad} | Precio: ${producto.precio} | Categoria: ${producto.categoria}| Ubicacion: ${producto.ubicacion}|Stock Minimo:${producto.stockMinimo}`
     );
 
     return producto;
