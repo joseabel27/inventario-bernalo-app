@@ -3,8 +3,9 @@
  * Permite registrar una venta y actualizar el inventario automáticamente.
  */
 
-import { buscarProductoPorId, actualizarProducto } from "./inventario.js";
+import { buscarProductoPorId, actualizarProducto,verificarStockMinimo } from "./inventario.js";
 import {validarVentas} from "./validaciones.js";
+
 
 
 
@@ -75,6 +76,8 @@ export function registrarVenta(id,cantidad,vendedor){
 
 }
 
+
+
 /** 
  * Muestra todas las ventas registradas
 */
@@ -83,4 +86,3 @@ export function listarVentas(){
 
     console.table(ventas);
 }
- 

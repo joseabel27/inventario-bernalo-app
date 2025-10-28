@@ -80,6 +80,8 @@ export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion,
     console.log(
       `Se actualizo la Cantidad de "${productoExistente.nombre}". Nueva cantidad: ${productoExistente.cantidad}`
     );
+
+    verificarStockMinimo(productoExistente);
   } else {
     /* Si no existe, creamos un nuevo producto */
 
@@ -92,7 +94,7 @@ export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion,
       precio: precio,
       cantidad: cantidad,
       ubicacion: ubicacion,
-      stockMinimo
+      stockMinimo:stockMinimo
     };
 
     /* LO AGREGAMOS AL INVENTARIO */
@@ -163,6 +165,14 @@ export function buscarProductoPorId(id) {
   }
 }
 
+export function verificarStockMinimo(producto) {
+  if (producto.cantidad <= producto.stockMinimo) {
+    console.log(
+      `⚠️ Atención: El producto "${producto.nombre}" ha alcanzado o bajado su stock mínimo (${producto.cantidad}/${producto.stockMinimo}).`
+    );
+  }
+}
+
 /* FUNCION PARA ACTUALIZAR UN PRODUCTO */
 
 export function actualizarProducto(id, nuevosDatos) {
@@ -181,11 +191,16 @@ export function actualizarProducto(id, nuevosDatos) {
     Object.assign(producto, nuevosDatos);
     console.log(`Producto Actualizado:`, producto);
 
+
+    verificarStockMinimo(producto);
     guardarInventarioEnArchivo();
   } else {
     console.log(`Producto con ID: ${id} no encontrado.`);
   }
 }
+
+/* VERIFICAR EL STOCK MINIMO */
+
 
 /* FUNCION PARA ELIMINAR PRODUCTO */
 

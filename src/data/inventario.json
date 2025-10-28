@@ -130,7 +130,7 @@
     "nombre": "Celda de carga 200kg",
     "categoria": "Celdas",
     "precio": 40,
-    "cantidad": 50,
+    "cantidad": 100,
     "ubicacion": "Estanteria H1",
     "stockMinimo": 95
   },
@@ -142,5 +142,14 @@
     "cantidad": 20,
     "ubicacion": "Estante J1",
     "stockMinimo": 8
+  },
+  {
+    "id": 17,
+    "nombre": "Adaptador Super SS",
+    "categoria": "Adaptadores",
+    "precio": 50,
+    "cantidad": 41,
+    "ubicacion": "Estante J2",
+    "stockMinimo": 45
   }
 ]

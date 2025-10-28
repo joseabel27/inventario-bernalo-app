@@ -1,6 +1,6 @@
 /* IMPORTAR EL INVENTARIO EN INDEX */
 
-import {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,obtenerInventario} from "./modules/inventario.js";
+import {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,obtenerInventario, verificarStockMinimo} from "./modules/inventario.js";
 
 import {validarNombreProducto} from "./modules/validaciones.js";
 
@@ -35,6 +35,7 @@ const productosPrueba = [
     ["Display KL1R", "Repuestos", 45.000, 200, "Estanteria I2",95],
     ["Celda de carga 200kg", "Celdas", 40.000, 200, "Estanteria H1",95],
     ["Adaptador 9 voltios", "Adaptadores", 25.000, 20, "Estante J1",8],
+    ["Adaptador Super SS", "Adaptadores", 50.000, 100, "Estante J2",45],  
   ];
 
   productosPrueba.forEach(p =>
@@ -78,9 +79,10 @@ listarProductos();
 
 /* Registrar una Venta */
 
-registrarVenta(15,50,"Jose");
+registrarVenta(17,1,"Jose");
 listarVentas();
 listarProductos();
+
 
 
 
