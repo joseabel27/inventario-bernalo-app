@@ -130,9 +130,9 @@
     "nombre": "Celda de carga 200kg",
     "categoria": "Celdas",
     "precio": 40,
-    "cantidad": 100,
+    "cantidad": 200,
     "ubicacion": "Estanteria H1",
-    "stockMinimo": 95
+    "stockMinimo": 100
   },
   {
     "id": 16,
@@ -148,8 +148,17 @@
     "nombre": "Adaptador Super SS",
     "categoria": "Adaptadores",
     "precio": 50,
-    "cantidad": 41,
+    "cantidad": 100,
     "ubicacion": "Estante J2",
     "stockMinimo": 45
+  },
+  {
+    "id": 18,
+    "nombre": "Balanza KTB 15kg",
+    "categoria": "Balanzas",
+    "precio": 150,
+    "cantidad": 99,
+    "ubicacion": "Estante K1",
+    "stockMinimo": 100
   }
 ]

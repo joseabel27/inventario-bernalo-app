@@ -51,7 +51,7 @@ export function registrarVenta(id,cantidad,vendedor){
     // Verificar Stock disponible
 
     if(producto.cantidad < cantidad){
-        console.log("Stock Insuficiente");
+        console.log("Stock Insuficiente, Venta no se puede realizar");
         return false;
 
     }
