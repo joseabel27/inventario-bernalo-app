@@ -80,7 +80,7 @@ listarProductos();
 
 /* Registrar una Venta */
 
-registrarVenta(18,51,"Jose");
+registrarVenta(4,246,"Jose");
 listarVentas();
 listarProductos();
 

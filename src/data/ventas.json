@@ -1,0 +1,62 @@
+[
+  {
+    "idVenta": 1,
+    "producto": "Bascula 150kg bernalito wifi",
+    "idProducto": 4,
+    "cantidad": 250,
+    "precioUnitario": 300.7,
+    "total": 75175,
+    "vendedor": "Jose",
+    "fecha": "2025-10-31T04:44:38.364Z"
+  },
+  {
+    "idVenta": 2,
+    "producto": "Bascula 150kg bernalito wifi",
+    "idProducto": 4,
+    "cantidad": 1,
+    "precioUnitario": 300.7,
+    "total": 300.7,
+    "vendedor": "Jose",
+    "fecha": "2025-10-31T04:46:27.547Z"
+  },
+  {
+    "idVenta": 3,
+    "producto": "Bascula 150kg bernalito wifi",
+    "idProducto": 4,
+    "cantidad": 1,
+    "precioUnitario": 300.7,
+    "total": 300.7,
+    "vendedor": "Jose",
+    "fecha": "2025-10-31T04:46:40.347Z"
+  },
+  {
+    "idVenta": 4,
+    "producto": "Bascula 150kg bernalito wifi",
+    "idProducto": 4,
+    "cantidad": 1,
+    "precioUnitario": 300.7,
+    "total": 300.7,
+    "vendedor": "Jose",
+    "fecha": "2025-10-31T04:47:13.464Z"
+  },
+  {
+    "idVenta": 5,
+    "producto": "Bascula 150kg bernalito wifi",
+    "idProducto": 4,
+    "cantidad": 1,
+    "precioUnitario": 300.7,
+    "total": 300.7,
+    "vendedor": "Jose",
+    "fecha": "2025-10-31T04:47:18.618Z"
+  },
+  {
+    "idVenta": 6,
+    "producto": "Bascula 150kg bernalito wifi",
+    "idProducto": 4,
+    "cantidad": 1,
+    "precioUnitario": 300.7,
+    "total": 300.7,
+    "vendedor": "Jose",
+    "fecha": "2025-10-31T04:47:23.319Z"
+  }
+]
