@@ -1,10 +1,12 @@
 /* IMPORTAR EL INVENTARIO EN INDEX */
 
-import {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,obtenerInventario, verificarStockMinimo} from "./modules/inventario.js";
+import {listarProductos, agregarProductos,buscarProductoNombre,buscarProductoPorId, actualizarProducto,eliminarProducto,obtenerInventario} from "./modules/inventario.js";
 
 import {validarNombreProducto} from "./modules/validaciones.js";
 
 import {registrarVenta,listarVentas} from "./modules/ventas.js";
+
+import { registrarDevoluciones } from "./modules/devoluciones.js";
 
 
 const inventario = obtenerInventario();
@@ -66,7 +68,7 @@ buscarProductoNombre("");
 
 
 /* ACTUALIZAMOS EL PRODUCTO */
-actualizarProducto(15, {stockMinimo:100});
+actualizarProducto(2, {stockMinimo:200});
 
 /* Volvemos a listar para ver el cambio */
 listarProductos();
@@ -80,11 +82,13 @@ listarProductos();
 
 /* Registrar una Venta */
 
-registrarVenta(4,246,"Jose");
+registrarVenta(18,40,"Jose");
 listarVentas();
 listarProductos();
 
+/* Registrar Devoluciones */
 
+registrarDevoluciones(18,5,"Display defectuoso","Adony");
 
 
 

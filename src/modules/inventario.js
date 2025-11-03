@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { validarNombreProducto } from "./validaciones.js";
 
+
 const RUTA_ARCHIVO = path.resolve("./src/data/inventario.json");
 
 //======CARGADO Y GUARDADO AUTOMATICO=======

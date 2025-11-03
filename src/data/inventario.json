@@ -15,7 +15,7 @@
     "precio": 400,
     "cantidad": 1000,
     "ubicacion": "Estante A2",
-    "stockMinimo": 450
+    "stockMinimo": 200
   },
   {
     "id": 3,
@@ -31,7 +31,7 @@
     "nombre": "Bascula 150kg bernalito wifi",
     "categoria": "Basculas",
     "precio": 300.7,
-    "cantidad": 245,
+    "cantidad": 500,
     "ubicacion": "Estante B1",
     "stockMinimo": 245
   },
@@ -132,7 +132,7 @@
     "precio": 40,
     "cantidad": 200,
     "ubicacion": "Estanteria H1",
-    "stockMinimo": 100
+    "stockMinimo": 95
   },
   {
     "id": 16,
@@ -157,7 +157,7 @@
     "nombre": "Balanza KTB 15kg",
     "categoria": "Balanzas",
     "precio": 150,
-    "cantidad": 150,
+    "cantidad": 115,
     "ubicacion": "Estante K1",
     "stockMinimo": 100
   }
