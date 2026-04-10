@@ -23,7 +23,7 @@ app.get("/productos", (req, res) => {
 
 app.get("/api/inventario", (req, res) => {
   try {
-    const productos = listarProductos();
+    const productos = obtenerInventario();
     res.json(productos);
   } catch (error) {
     res.status(500).json({ mensaje: "Error al obtener inventario" });
