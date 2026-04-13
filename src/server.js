@@ -4,6 +4,7 @@ import cors  from "cors";
 import {
   
   obtenerInventario,
+  agregarProductos,
   listarProductos
   
 } from "./modules/inventario.js";
@@ -27,6 +28,19 @@ app.get("/api/inventario", (req, res) => {
     res.json(productos);
   } catch (error) {
     res.status(500).json({ mensaje: "Error al obtener inventario" });
+  }
+});
+
+app.post("/api/inventario", (req, res) => {
+  try {
+    const { nombre, categoria, precio, cantidad, ubicacion, stockMinimo } = req.body;
+
+    // Importamos función
+    agregarProductos(nombre, categoria, precio, cantidad, ubicacion, stockMinimo);
+
+    res.json({ mensaje: "Producto agregado correctamente" });
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al agregar producto" });
   }
 });
 
