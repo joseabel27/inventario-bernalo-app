@@ -28,10 +28,25 @@ router.post("/", (req, res) => {
   const { nombre, categoria, precio, cantidad, ubicacion, stockMinimo } = req.body;
 
   try {
-    agregarProductos(nombre, categoria, precio, cantidad, ubicacion, stockMinimo);
-    res.status(201).json({ mensaje: "Producto agregado correctamente" });
+    // Verificar que todos los datos requeridos estén presentes
+    if (!nombre || !categoria || !precio || !cantidad || !ubicacion || stockMinimo === undefined) {
+      return res.status(400).json({ 
+        error: "Faltan datos requeridos. Se necesita: nombre, categoria, precio, cantidad, ubicacion, stockMinimo" 
+      });
+    }
+
+    const resultado = agregarProductos(nombre, categoria, precio, cantidad, ubicacion, stockMinimo);
+    
+    if (resultado.exito) {
+      res.status(201).json({ 
+        mensaje: resultado.mensaje,
+        producto: resultado.producto 
+      });
+    } else {
+      res.status(400).json({ error: resultado.mensaje });
+    }
   } catch (error) {
-    res.status(500).json({ error: "Error al agregar producto" });
+    res.status(500).json({ error: "Error al agregar producto: " + error.message });
   }
 });
 

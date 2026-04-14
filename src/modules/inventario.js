@@ -1,7 +1,14 @@
 
 import fs from "fs";
 import path from "path";
-import { validarNombreProducto } from "./validaciones.js";
+import { 
+  validarNombreProducto,
+  validarCategoria,
+  validarPrecio,
+  validarCantidad,
+  validarUbicacion,
+  validarStockMinimo
+} from "./validaciones.js";
 
 
 const RUTA_ARCHIVO = path.resolve("./src/data/inventario.json");
@@ -67,46 +74,73 @@ export function listarProductos() {
 
 /* FUNCION PARA AGREGAR UN PRODUCTO */
 
-export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion,stockMinimo) {
-  /*  BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
+export function agregarProductos(nombre, categoria, precio, cantidad, ubicacion, stockMinimo) {
+  /*  VALIDAMOS TODOS LOS DATOS DE ENTRADA */
+
+  const validacionNombre = validarNombreProducto(nombre);
+  if (!validacionNombre.valido) {
+    return { exito: false, mensaje: validacionNombre.mensaje };
+  }
+
+  const validacionCategoria = validarCategoria(categoria);
+  if (!validacionCategoria.valido) {
+    return { exito: false, mensaje: validacionCategoria.mensaje };
+  }
+
+  const validacionPrecio = validarPrecio(precio);
+  if (!validacionPrecio.valido) {
+    return { exito: false, mensaje: validacionPrecio.mensaje };
+  }
+
+  const validacionCantidad = validarCantidad(cantidad);
+  if (!validacionCantidad.valido) {
+    return { exito: false, mensaje: validacionCantidad.mensaje };
+  }
+
+  const validacionUbicacion = validarUbicacion(ubicacion);
+  if (!validacionUbicacion.valido) {
+    return { exito: false, mensaje: validacionUbicacion.mensaje };
+  }
+
+  const validacionStockMinimo = validarStockMinimo(stockMinimo);
+  if (!validacionStockMinimo.valido) {
+    return { exito: false, mensaje: validacionStockMinimo.mensaje };
+  }
+
+  /* BUSCAMOS SI EL PRODUCTO YA EXISTE EN EL INVENTARIO */
 
   const productoExistente = inventario.find(
     (p) => p.nombre.toLowerCase() === nombre.toLowerCase()
   );
 
   if (productoExistente) {
-    /* Si existe sumamos la cantidad */
-
-    productoExistente.cantidad += cantidad;
-    console.log(
-      `Se actualizo la Cantidad de "${productoExistente.nombre}". Nueva cantidad: ${productoExistente.cantidad}`
-    );
-
-    verificarStockMinimo(productoExistente);
-  } else {
-    /* Si no existe, creamos un nuevo producto */
-
-    /* CREAMOS UN OBJETO CON LOS DATOS DEL PRODUCTO */
-
-    const producto = {
-      id: inventario.length > 0 ? Math.max(...inventario.map(p => p.id)) + 1 : 1, // ID AUTOMATICO
-      nombre: nombre,
-      categoria: categoria,
-      precio: precio,
-      cantidad: cantidad,
-      ubicacion: ubicacion,
-      stockMinimo:stockMinimo
+    /* Si existe, rechazamos la operación */
+    return { 
+      exito: false, 
+      mensaje: `El producto "${nombre}" ya existe en el inventario. Use actualización para modificar la cantidad.` 
     };
-
-    /* LO AGREGAMOS AL INVENTARIO */
-
-    inventario.push(producto);
-    console.log(
-      `Producto agregado : ID: ${producto.id} | Nombre: ${producto.nombre} | Categoria: ${producto.categoria} | Precio: ${producto.precio}| Cantidad: ${producto.cantidad} | Ubicacion: ${producto.ubicacion} | Stock Minimo:${producto.stockMinimo}`
-    );
   }
 
-  guardarInventarioEnArchivo(); // GUARDAR CAMBIOS
+  /* Si no existe, creamos un nuevo producto */
+
+  const producto = {
+    id: inventario.length > 0 ? Math.max(...inventario.map(p => p.id)) + 1 : 1,
+    nombre: nombre,
+    categoria: categoria,
+    precio: precio,
+    cantidad: cantidad,
+    ubicacion: ubicacion,
+    stockMinimo: stockMinimo
+  };
+
+  inventario.push(producto);
+  guardarInventarioEnArchivo();
+
+  return {
+    exito: true,
+    mensaje: `Producto agregado correctamente. ID: ${producto.id} | Nombre: ${producto.nombre}`,
+    producto: producto
+  };
 }
 
 

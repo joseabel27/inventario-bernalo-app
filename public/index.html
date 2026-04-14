@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario - Bernalo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideDown 0.3s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .alert.info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            display: block;
+        }
+
+        .alert strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .product-id {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+            font-size: 13px;
+        }
+
+        .product-id strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Gestión de Inventario</h1>
+        <p class="subtitle">Bernalo - Sistema de Registro de Productos</p>
+
+        <div id="message" class="alert"></div>
+
+        <form id="formulario">
+            <div class="form-group">
+                <label for="nombre">Nombre del Producto *</label>
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    placeholder="Ej: Bascula 150kg bernalo pedestal"
+                    required
+                >
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="categoria">Categoría *</label>
+                    <input 
+                        type="text" 
+                        id="categoria" 
+                        name="categoria" 
+                        placeholder="Ej: Basculas"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio (S/.) *</label>
+                    <input 
+                        type="number" 
+                        id="precio" 
+                        name="precio" 
+                        placeholder="0.00"
+                        step="0.01"
+                        min="0.01"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad *</label>
+                    <input 
+                        type="number" 
+                        id="cantidad" 
+                        name="cantidad" 
+                        placeholder="0"
+                        min="1"
+                        step="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="stockMinimo">Stock Mínimo *</label>
+                    <input 
+                        type="number" 
+                        id="stockMinimo" 
+                        name="stockMinimo" 
+                        placeholder="0"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ubicacion">Ubicación *</label>
+                <input 
+                    type="text" 
+                    id="ubicacion" 
+                    name="ubicacion" 
+                    placeholder="Ej: Estante A1"
+                    required
+                >
+            </div>
+
+            <div class="loading" id="loading">
+                <span class="spinner"></span>
+                <span>Agregando producto...</span>
+            </div>
+
+            <button type="submit" id="btnAgregar">Agregar Producto</button>
+
+            <div class="product-id" id="productId"></div>
+        </form>
+    </div>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const messageDiv = document.getElementById('message');
+        const loadingDiv = document.getElementById('loading');
+        const productIdDiv = document.getElementById('productId');
+        const btnAgregar = document.getElementById('btnAgregar');
+
+        formulario.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombre = document.getElementById('nombre').value.trim();
+            const categoria = document.getElementById('categoria').value.trim();
+            const precio = parseFloat(document.getElementById('precio').value);
+            const cantidad = parseInt(document.getElementById('cantidad').value);
+            const stockMinimo = parseInt(document.getElementById('stockMinimo').value);
+            const ubicacion = document.getElementById('ubicacion').value.trim();
+
+            // Limpiar mensajes anteriores
+            messageDiv.innerHTML = '';
+            messageDiv.className = 'alert';
+            productIdDiv.style.display = 'none';
+
+            // Mostrar indicador de carga
+            loadingDiv.style.display = 'block';
+            btnAgregar.disabled = true;
+
+            try {
+                const response = await fetch('/api/inventario', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nombre,
+                        categoria,
+                        precio,
+                        cantidad,
+                        ubicacion,
+                        stockMinimo
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Éxito
+                    messageDiv.className = 'alert success';
+                    messageDiv.innerHTML = `
+                        <strong>✅ ¡Producto agregado correctamente!</strong>
+                        ${data.mensaje}
+                    `;
+                    
+                    // Mostrar ID del producto
+                    if (data.producto) {
+                        productIdDiv.innerHTML = `<strong>ID del Producto:</strong> ${data.producto.id}`;
+                        productIdDiv.style.display = 'block';
+                    }
+
+                    // Limpiar formulario
+                    formulario.reset();
+                    
+                } else {
+                    // Error
+                    messageDiv.className = 'alert error';
+                    messageDiv.innerHTML = `
+                        <strong>⚠️ Error al agregar el producto</strong>
+                        ${data.error}
+                    `;
+                }
+            } catch (error) {
+                messageDiv.className = 'alert error';
+                messageDiv.innerHTML = `
+                    <strong>❌ Error de conexión</strong>
+                    No se pudo conectar con el servidor. Intenta de nuevo.
+                `;
+                console.error('Error:', error);
+            } finally {
+                // Ocultar indicador de carga
+                loadingDiv.style.display = 'none';
+                btnAgregar.disabled = false;
+                
+                // Auto-ocultar mensaje después de 5 segundos si es éxito
+                if (response && response.ok) {
+                    // El mensaje se mantiene visible  
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     "nombre": "Bascula 150kg bernalo pedestal",
     "categoria": "Basculas",
     "precio": 392.7,
-    "cantidad": 500,
+    "cantidad": 700,
     "ubicacion": "Estante A1",
     "stockMinimo": 200
   },
@@ -163,11 +163,20 @@
   },
   {
     "id": 19,
-    "nombre": "Bascula 60kg bernalo pedestal",
-    "categoria": "Basculas",
-    "precio": 200,
+    "nombre": "Balanza Bernalito40kg",
+    "categoria": "Balanzas",
+    "precio": 85000,
+    "cantidad": 200,
+    "ubicacion": "Estante H1",
+    "stockMinimo": 100
+  },
+  {
+    "id": 20,
+    "nombre": "Picadora de Hielo",
+    "categoria": "Horeca",
+    "precio": 2000000,
     "cantidad": 100,
-    "ubicacion": "Estante L1",
-    "stockMinimo": 60
+    "ubicacion": "Estante M1",
+    "stockMinimo": 100
   }
 ]
