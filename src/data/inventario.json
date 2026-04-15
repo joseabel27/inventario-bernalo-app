@@ -178,5 +178,14 @@
     "cantidad": 100,
     "ubicacion": "Estante M1",
     "stockMinimo": 100
+  },
+  {
+    "id": 21,
+    "nombre": "Cortadora de papa",
+    "categoria": "Horeca",
+    "precio": 2000000,
+    "cantidad": 100,
+    "ubicacion": "Estante 2",
+    "stockMinimo": 49
   }
 ]

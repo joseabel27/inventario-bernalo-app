@@ -177,6 +177,41 @@
         .product-id strong {
             color: #667eea;
         }
+
+        .product-list {
+            margin-top: 30px;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .product-table th,
+        .product-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .product-table th {
+            background: #f7f7fb;
+        }
+
+        .product-table tbody tr:hover {
+            background: #f5f7ff;
+        }
+
+        .empty-state {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fc;
+            border: 1px solid #dfe2f4;
+            border-radius: 8px;
+            color: #4a5568;
+        }
     </style>
 </head>
 <body>
@@ -185,6 +220,7 @@
         <p class="subtitle">Bernalo - Sistema de Registro de Productos</p>
 
         <div id="message" class="alert"></div>
+        <div id="productList" class="product-list"></div>
 
         <form id="formulario">
             <div class="form-group">
@@ -277,9 +313,66 @@
     <script>
         const formulario = document.getElementById('formulario');
         const messageDiv = document.getElementById('message');
+        const productListDiv = document.getElementById('productList');
         const loadingDiv = document.getElementById('loading');
         const productIdDiv = document.getElementById('productId');
         const btnAgregar = document.getElementById('btnAgregar');
+        let response;
+
+        function mostrarProductos(productos) {
+            if (!productos || productos.length === 0) {
+                productListDiv.innerHTML = '<div class="empty-state">No hay productos registrados en el inventario.</div>';
+                return;
+            }
+
+            const filas = productos.map((producto) => {
+                return `
+                    <tr>
+                        <td>${producto.id}</td>
+                        <td>${producto.nombre}</td>
+                        <td>${producto.categoria}</td>
+                        <td>${producto.precio}</td>
+                        <td>${producto.cantidad}</td>
+                        <td>${producto.ubicacion}</td>
+                        <td>${producto.stockMinimo}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            productListDiv.innerHTML = `
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Ubicación</th>
+                            <th>Stock mínimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${filas}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        async function cargarProductos() {
+            try {
+                const res = await fetch('/api/inventario');
+                if (!res.ok) {
+                    throw new Error('No se pudo cargar el inventario.');
+                }
+
+                const productos = await res.json();
+                mostrarProductos(productos);
+            } catch (error) {
+                productListDiv.innerHTML = '<div class="empty-state">No se pudieron cargar los productos. Intenta recargar la página.</div>';
+                console.error('Error cargando productos:', error);
+            }
+        }
 
         formulario.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -288,8 +381,8 @@
             const nombre = document.getElementById('nombre').value.trim();
             const categoria = document.getElementById('categoria').value.trim();
             const precio = parseFloat(document.getElementById('precio').value);
-            const cantidad = parseInt(document.getElementById('cantidad').value);
-            const stockMinimo = parseInt(document.getElementById('stockMinimo').value);
+            const cantidad = parseInt(document.getElementById('cantidad').value, 10);
+            const stockMinimo = parseInt(document.getElementById('stockMinimo').value, 10);
             const ubicacion = document.getElementById('ubicacion').value.trim();
 
             // Limpiar mensajes anteriores
@@ -302,7 +395,7 @@
             btnAgregar.disabled = true;
 
             try {
-                const response = await fetch('/api/inventario', {
+                response = await fetch('/api/inventario', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -320,24 +413,20 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    // Éxito
                     messageDiv.className = 'alert success';
                     messageDiv.innerHTML = `
                         <strong>✅ ¡Producto agregado correctamente!</strong>
                         ${data.mensaje}
                     `;
-                    
-                    // Mostrar ID del producto
+
                     if (data.producto) {
                         productIdDiv.innerHTML = `<strong>ID del Producto:</strong> ${data.producto.id}`;
                         productIdDiv.style.display = 'block';
                     }
 
-                    // Limpiar formulario
                     formulario.reset();
-                    
+                    await cargarProductos();
                 } else {
-                    // Error
                     messageDiv.className = 'alert error';
                     messageDiv.innerHTML = `
                         <strong>⚠️ Error al agregar el producto</strong>
@@ -345,6 +434,7 @@
                     `;
                 }
             } catch (error) {
+                response = null;
                 messageDiv.className = 'alert error';
                 messageDiv.innerHTML = `
                     <strong>❌ Error de conexión</strong>
@@ -352,16 +442,12 @@
                 `;
                 console.error('Error:', error);
             } finally {
-                // Ocultar indicador de carga
                 loadingDiv.style.display = 'none';
                 btnAgregar.disabled = false;
-                
-                // Auto-ocultar mensaje después de 5 segundos si es éxito
-                if (response && response.ok) {
-                    // El mensaje se mantiene visible  
-                }
             }
         });
+
+        cargarProductos();
     </script>
 </body>
 </html>
