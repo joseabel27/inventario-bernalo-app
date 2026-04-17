@@ -163,29 +163,20 @@
   },
   {
     "id": 19,
-    "nombre": "Balanza Bernalito40kg",
-    "categoria": "Balanzas",
-    "precio": 85000,
-    "cantidad": 200,
-    "ubicacion": "Estante H1",
-    "stockMinimo": 100
+    "nombre": "Cortadora de papa",
+    "categoria": "Horeca",
+    "precio": 100,
+    "cantidad": 100,
+    "ubicacion": "Estante 2",
+    "stockMinimo": 49
   },
   {
     "id": 20,
     "nombre": "Picadora de Hielo",
     "categoria": "Horeca",
-    "precio": 2000000,
+    "precio": 2000,
     "cantidad": 100,
-    "ubicacion": "Estante M1",
-    "stockMinimo": 100
-  },
-  {
-    "id": 21,
-    "nombre": "Cortadora de papa",
-    "categoria": "Horeca",
-    "precio": 2000000,
-    "cantidad": 100,
-    "ubicacion": "Estante 2",
-    "stockMinimo": 49
+    "ubicacion": "Estante L1",
+    "stockMinimo": 200
   }
 ]
