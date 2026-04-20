@@ -178,5 +178,14 @@
     "cantidad": 100,
     "ubicacion": "Estante L1",
     "stockMinimo": 200
+  },
+  {
+    "id": 21,
+    "nombre": "Balanza precision 200g",
+    "categoria": "Balanzas",
+    "precio": 200,
+    "cantidad": 100,
+    "ubicacion": "Estante 2",
+    "stockMinimo": 110
   }
 ]
