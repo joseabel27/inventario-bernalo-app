@@ -187,5 +187,42 @@
     "cantidad": 100,
     "ubicacion": "Estante 2",
     "stockMinimo": 110
+  },
+  {
+    "id": 22,
+    "nombre": "Pesa Maleta 50kg",
+    "categoria": "Dinamometros",
+    "precio": 45000,
+    "cantidad": 200,
+    "ubicacion": "Estante C3",
+    "stockMinimo": 100
+  },
+  {
+    "id": 23,
+    "nombre": "Balanza Bernalo Color 40kg",
+    "categoria": "Basculas",
+    "precio": 220,
+    "cantidad": 300,
+    "ubicacion": "Estante B1",
+    "stockMinimo": 150,
+    "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp"
+  },
+  {
+    "id": 24,
+    "nombre": "Celda de carga de 1 Tonelada",
+    "categoria": "Celdas",
+    "precio": 400000,
+    "cantidad": 20,
+    "ubicacion": "Estante F1",
+    "stockMinimo": 10
+  },
+  {
+    "id": 25,
+    "nombre": "Celda de carga de 2 Toneladas",
+    "categoria": "Celdas",
+    "precio": 460000,
+    "cantidad": 20,
+    "ubicacion": "Estante E3",
+    "stockMinimo": 10
   }
 ]
