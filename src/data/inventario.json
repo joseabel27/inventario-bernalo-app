@@ -224,5 +224,15 @@
     "cantidad": 20,
     "ubicacion": "Estante E3",
     "stockMinimo": 10
+  },
+  {
+    "id": 26,
+    "nombre": "Balanza Bernalo Acero Inoxidable 40kg",
+    "categoria": "Basculas",
+    "precio": 285600,
+    "cantidad": 500,
+    "ubicacion": "Estante J3",
+    "stockMinimo": 250,
+    "imagen":"https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777342357/40AceroInox_uoriha.webp"
   }
 ]
