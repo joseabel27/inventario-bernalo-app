@@ -233,6 +233,15 @@
     "cantidad": 500,
     "ubicacion": "Estante J3",
     "stockMinimo": 250,
-    "imagen":"https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777342357/40AceroInox_uoriha.webp"
+    "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777342357/40AceroInox_uoriha.webp"
+  },
+  {
+    "id": 27,
+    "nombre": "Celda de carga 800kg",
+    "categoria": "Celdas",
+    "precio": 220000,
+    "cantidad": 200,
+    "ubicacion": "Estante C2",
+    "stockMinimo": 100
   }
 ]
