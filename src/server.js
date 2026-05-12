@@ -78,6 +78,26 @@ app.delete("/api/inventario/:id", (req, res) => {
   }
 });
 
+app.put("/api/inventario/:id", (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const datos = req.body;
+
+    const inventario = obtenerInventario();
+    const index = inventario.findIndex(p => p.id === id);
+
+    if (index === -1) {
+      return res.status(404).json({ mensaje: "No encontrado" });
+    }
+
+    inventario[index] = { ...inventario[index], ...datos };
+
+    res.json({ mensaje: "Actualizado" });
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error" });
+  }
+});
+
 
 // Servidor Corriendo en el puerto 3000
 
