@@ -202,7 +202,7 @@
     "nombre": "Balanza Bernalo Color 40kg",
     "categoria": "Basculas",
     "precio": 220,
-    "cantidad": 300,
+    "cantidad": 150,
     "ubicacion": "Estante B1",
     "stockMinimo": 150,
     "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp"
@@ -243,5 +243,32 @@
     "cantidad": 200,
     "ubicacion": "Estante C2",
     "stockMinimo": 100
+  },
+  {
+    "id": 28,
+    "nombre": "Calentador de Salchicha",
+    "categoria": "Horeka",
+    "precio": 2000000,
+    "cantidad": 100,
+    "ubicacion": "Estante H1",
+    "stockMinimo": 50
+  },
+  {
+    "id": 29,
+    "nombre": "Adaptador 6 voltios",
+    "categoria": "Repuestos",
+    "precio": 25000,
+    "cantidad": 100,
+    "ubicacion": "Estante J2",
+    "stockMinimo": 50
+  },
+  {
+    "id": 30,
+    "nombre": "Indicador X0",
+    "categoria": "Repuestos",
+    "precio": 160000,
+    "cantidad": 50,
+    "ubicacion": "Estante D2",
+    "stockMinimo": 25
   }
 ]
