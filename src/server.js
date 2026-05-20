@@ -12,6 +12,11 @@ import {
   
 } from "./modules/inventario.js";
 
+import {
+  registrarVenta,
+  listarVentas
+} from "./modules/ventas.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -96,6 +101,58 @@ app.put("/api/inventario/:id", (req, res) => {
   } catch (error) {
     res.status(500).json({ mensaje: "Error" });
   }
+});
+
+
+// ======================================
+// OBTENER VENTAS
+// ======================================
+app.get("/api/ventas", (req, res) => {
+
+  try {
+
+    const ventas = listarVentas();
+
+    res.json(ventas);
+
+  } catch (error) {
+
+    res.status(500).json({
+      mensaje: "Error al obtener ventas"
+    });
+
+  }
+
+});
+
+
+// ======================================
+// REGISTRAR VENTA
+// ======================================
+app.post("/api/ventas", (req, res) => {
+
+  try {
+
+    const resultado = registrarVenta(req.body);
+
+    if (!resultado.exito) {
+
+      return res.status(400).json({
+        mensaje: resultado.mensaje
+      });
+
+    }
+
+    res.status(201).json(resultado);
+
+  } catch (error) {
+
+    res.status(500).json({
+      mensaje: error.message
+    });
+
+  }
+
 });
 
 

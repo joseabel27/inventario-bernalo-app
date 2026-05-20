@@ -8,5 +8,30 @@
     "total": 6000,
     "vendedor": "Jose",
     "fecha": "2025-11-03T01:12:24.031Z"
+  },
+  {
+    "idVenta": 2,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Cartagena",
+    "cliente": "Akim Duboi",
+    "tipoDocumento": "FVP",
+    "factura": "00001",
+    "carrito": [
+      {
+        "id": 23,
+        "nombre": "Balanza Bernalo Color Azul 40kg",
+        "categoria": "Basculas",
+        "precio": 220,
+        "cantidad": 10,
+        "ubicacion": "Estante B1",
+        "stockMinimo": 150,
+        "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp",
+        "subtotal": 2200
+      }
+    ],
+    "subtotal": 2200,
+    "iva": 418,
+    "total": 2618,
+    "fecha": "2026-05-20T18:27:08.985Z"
   }
 ]

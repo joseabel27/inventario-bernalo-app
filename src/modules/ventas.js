@@ -77,73 +77,117 @@ import {validarVentas} from "./validaciones.js";
  * @param {string}  vendedor - Nombre del vendedor
  */
 
-export function registrarVenta(id,cantidad,vendedor){
+export function registrarVenta(datosVenta) {
 
-    // Validacion de los datos de la venta
+    const {
+        vendedor,
+        ciudad,
+        cliente,
+        tipoDocumento,
+        factura,
+        carrito
+    } = datosVenta;
 
-    if(!validarVentas(id, cantidad, vendedor)){
+    // =========================
+    // VALIDAR CARRITO
+    // =========================
+    if (!carrito || carrito.length === 0) {
 
-    console.log("Datos de venta no validos.");
-    return false;
+        console.log("Carrito vacío");
+        return {
+            exito: false,
+            mensaje: "No hay productos en el carrito"
+        };
     }
 
-    //Buscar el producto
+    let subtotal = 0;
 
-    const producto = buscarProductoPorId (id);
-    if(!producto){
+    // =========================
+    // RECORRER PRODUCTOS
+    // =========================
+    for (const item of carrito) {
 
-        console.log("Producto no encontrado");
-        return false;
-        
+        const producto = buscarProductoPorId(item.id);
+
+        if (!producto) {
+
+            return {
+                exito: false,
+                mensaje: `Producto no encontrado: ${item.nombre}`
+            };
+        }
+
+        // VALIDAR STOCK
+        if (producto.cantidad < item.cantidad) {
+
+            return {
+                exito: false,
+                mensaje: `Stock insuficiente para ${producto.nombre}`
+            };
+        }
+
+        // DESCONTAR STOCK
+        producto.cantidad -= item.cantidad;
+
+        actualizarProducto(producto.id, producto);
+
+        // SUMAR SUBTOTAL
+        subtotal += item.precio * item.cantidad;
     }
 
-    // Verificar Stock disponible
+    // =========================
+    // IVA Y TOTAL
+    // =========================
+    const iva = subtotal * 0.19;
 
-    if(producto.cantidad < cantidad){
-        console.log("Stock Insuficiente, Venta no se puede realizar");
-        return false;
+    const total = subtotal + iva;
 
-    }
-
-    // Actualizar inventario ( restar las unidades vendidas)
-
-    producto.cantidad -= cantidad;
-    actualizarProducto(producto.id, producto);
-
-    // Calcular total de la venta
-
-    const total = cantidad * producto.precio;
-
-    // Crear Objeto Venta   
-
+    // =========================
+    // CREAR VENTA
+    // =========================
     const venta = {
 
-        idVenta:ventas.length> 0 ? Math.max(...ventas.map( v => v.idVenta)) + 1 :1,
-        producto:producto.nombre,
-        idProducto : producto.id,
-        cantidad,
-        precioUnitario:producto.precio,
+        idVenta:
+            ventas.length > 0
+                ? Math.max(...ventas.map(v => v.idVenta)) + 1
+                : 1,
+
+        vendedor,
+        ciudad,
+        cliente,
+        tipoDocumento,
+        factura,
+
+        carrito,
+
+        subtotal,
+        iva,
         total,
-        vendedor: vendedor.trim(),
-        fecha: new Date().toISOString(),
+
+        fecha: new Date().toISOString()
     };
 
-    // Agregar y guardar venta
-
+    // =========================
+    // GUARDAR
+    // =========================
     ventas.push(venta);
+
     guardarVentasDesdeArchivo();
-    console.log(`Vente registrada con exito: ${cantidad} x ${producto.nombre} = $${total}` );
-    return true;
 
+    console.log("Venta registrada correctamente");
+
+    return {
+        exito: true,
+        mensaje: "Venta registrada correctamente",
+        venta
+    };
 }
-
-
 
 /** 
  * Muestra todas las ventas registradas
 */
 
-export function listarVentas(){
+export function listarVentas() {
 
-    console.table(ventas);
+    return ventas;
 }

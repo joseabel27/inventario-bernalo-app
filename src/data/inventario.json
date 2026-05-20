@@ -199,10 +199,10 @@
   },
   {
     "id": 23,
-    "nombre": "Balanza Bernalo Color 40kg",
+    "nombre": "Balanza Bernalo Color Azul 40kg",
     "categoria": "Basculas",
     "precio": 220,
-    "cantidad": 150,
+    "cantidad": 190,
     "ubicacion": "Estante B1",
     "stockMinimo": 150,
     "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp"
@@ -270,5 +270,14 @@
     "cantidad": 50,
     "ubicacion": "Estante D2",
     "stockMinimo": 25
+  },
+  {
+    "id": 31,
+    "nombre": "Indicador X1",
+    "categoria": "Repuestos",
+    "precio": 180000,
+    "cantidad": 100,
+    "ubicacion": "Estante D2",
+    "stockMinimo": 50
   }
 ]
