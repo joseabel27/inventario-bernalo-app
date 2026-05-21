@@ -94,7 +94,7 @@
     "nombre": "Celda de carga 400kg",
     "categoria": "Celdas",
     "precio": 85,
-    "cantidad": 400,
+    "cantidad": 395,
     "ubicacion": "Estanteria H1",
     "stockMinimo": 150
   },
@@ -202,7 +202,7 @@
     "nombre": "Balanza Bernalo Color Azul 40kg",
     "categoria": "Basculas",
     "precio": 220,
-    "cantidad": 190,
+    "cantidad": 180,
     "ubicacion": "Estante B1",
     "stockMinimo": 150,
     "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp"
@@ -267,7 +267,7 @@
     "nombre": "Indicador X0",
     "categoria": "Repuestos",
     "precio": 160000,
-    "cantidad": 50,
+    "cantidad": 20,
     "ubicacion": "Estante D2",
     "stockMinimo": 25
   },

@@ -33,5 +33,74 @@
     "iva": 418,
     "total": 2618,
     "fecha": "2026-05-20T18:27:08.985Z"
+  },
+  {
+    "idVenta": 3,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Cartagena",
+    "cliente": "Akin Duboi",
+    "tipoDocumento": "FVP",
+    "factura": "87909",
+    "carrito": [
+      {
+        "id": 11,
+        "nombre": "Celda de carga 400kg",
+        "categoria": "Celdas",
+        "precio": 85,
+        "cantidad": 5,
+        "ubicacion": "Estanteria H1",
+        "stockMinimo": 150,
+        "subtotal": 425
+      },
+      {
+        "id": 30,
+        "nombre": "Indicador X0",
+        "categoria": "Repuestos",
+        "precio": 160000,
+        "cantidad": 10,
+        "ubicacion": "Estante D2",
+        "stockMinimo": 25,
+        "subtotal": 1600000
+      },
+      {
+        "id": 23,
+        "nombre": "Balanza Bernalo Color Azul 40kg",
+        "categoria": "Basculas",
+        "precio": 220,
+        "cantidad": 10,
+        "ubicacion": "Estante B1",
+        "stockMinimo": 150,
+        "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp",
+        "subtotal": 2200
+      }
+    ],
+    "subtotal": 1602625,
+    "iva": 304498.75,
+    "total": 1907123.75,
+    "fecha": "2026-05-21T15:13:52.085Z"
+  },
+  {
+    "idVenta": 4,
+    "vendedor": "Adony Molina",
+    "ciudad": "Cucuta",
+    "cliente": "Ciro Granados",
+    "tipoDocumento": "FVP",
+    "factura": "0028",
+    "carrito": [
+      {
+        "id": 30,
+        "nombre": "Indicador X0",
+        "categoria": "Repuestos",
+        "precio": 160000,
+        "cantidad": 20,
+        "ubicacion": "Estante D2",
+        "stockMinimo": 25,
+        "subtotal": 3200000
+      }
+    ],
+    "subtotal": 3200000,
+    "iva": 608000,
+    "total": 3808000,
+    "fecha": "2026-05-21T18:10:36.345Z"
   }
 ]
