@@ -14,7 +14,9 @@ import {
 
 import {
   registrarVenta,
-  listarVentas
+  listarVentas,
+  obtenerVentas,
+  guardarVentas
 } from "./modules/ventas.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -159,6 +161,54 @@ app.post("/api/ventas", (req, res) => {
 // Servidor Corriendo en el puerto 3000
 
 const PORT = 3000;
+
+// DESPACHAR VENTA
+
+app.put("/api/ventas/:id/despachar", (req, res) => {
+
+  try {
+
+    const idVenta = Number(req.params.id);
+
+    const { numeroGuia } = req.body;
+
+    const ventas = obtenerVentas();
+
+    const index = ventas.findIndex(
+      (v) => v.idVenta === idVenta
+    );
+
+    if (index === -1) {
+
+      return res.status(404).json({
+        mensaje: "Venta no encontrada"
+      });
+
+    }
+
+    // ACTUALIZAR ESTADO
+    ventas[index].estado = "Despachado";
+
+    ventas[index].numeroGuia = numeroGuia;
+
+    guardarVentas(ventas);
+
+    res.json({
+      mensaje: "Venta despachada correctamente 🚚"
+    });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      mensaje: "Error al despachar venta"
+    });
+
+  }
+
+});
+
 app.listen(PORT,()=>{
 
     console.log(`Servidor Backend Funcionando en http://localhost:${PORT}`);

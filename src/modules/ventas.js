@@ -187,6 +187,21 @@ export function registrarVenta(datosVenta) {
  * Muestra todas las ventas registradas
 */
 
+export function obtenerVentas() {
+
+  return ventas;
+
+}
+
+export function guardarVentas(nuevasVentas) {
+
+  ventas = nuevasVentas;
+
+  guardarVentasDesdeArchivo();
+
+}
+
+
 export function listarVentas() {
 
     return ventas;

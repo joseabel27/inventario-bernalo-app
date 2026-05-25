@@ -125,7 +125,9 @@
     "subtotal": 196350,
     "iva": 37306.5,
     "total": 233656.5,
-    "fecha": "2026-05-25T02:01:34.825Z"
+    "fecha": "2026-05-25T02:01:34.825Z",
+    "estado": "Despachado",
+    "numeroGuia": "43218765"
   },
   {
     "idVenta": 6,
@@ -149,6 +151,8 @@
     "subtotal": 320000,
     "iva": 60800,
     "total": 380800,
-    "fecha": "2026-05-25T02:05:22.290Z"
+    "fecha": "2026-05-25T02:05:22.290Z",
+    "estado": "Despachado",
+    "numeroGuia": "123456789"
   }
 ]
