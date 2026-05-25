@@ -4,7 +4,7 @@
     "nombre": "Bascula 150kg bernalo pedestal",
     "categoria": "Basculas",
     "precio": 392.7,
-    "cantidad": 700,
+    "cantidad": 200,
     "ubicacion": "Estante A1",
     "stockMinimo": 200
   },
@@ -13,7 +13,7 @@
     "nombre": "Bascula 150kg bernalo wifi",
     "categoria": "Basculas",
     "precio": 400,
-    "cantidad": 1000,
+    "cantidad": 200,
     "ubicacion": "Estante A2",
     "stockMinimo": 200
   },
@@ -240,7 +240,7 @@
     "nombre": "Celda de carga 800kg",
     "categoria": "Celdas",
     "precio": 220000,
-    "cantidad": 200,
+    "cantidad": 99,
     "ubicacion": "Estante C2",
     "stockMinimo": 100
   },

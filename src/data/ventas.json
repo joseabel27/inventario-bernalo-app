@@ -102,5 +102,53 @@
     "iva": 608000,
     "total": 3808000,
     "fecha": "2026-05-21T18:10:36.345Z"
+  },
+  {
+    "idVenta": 5,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Cucuta",
+    "cliente": "Akim Duboi",
+    "tipoDocumento": "DESP",
+    "factura": "00123",
+    "carrito": [
+      {
+        "id": 1,
+        "nombre": "Bascula 150kg bernalo pedestal",
+        "categoria": "Basculas",
+        "precio": 392.7,
+        "cantidad": 500,
+        "ubicacion": "Estante A1",
+        "stockMinimo": 200,
+        "subtotal": 196350
+      }
+    ],
+    "subtotal": 196350,
+    "iva": 37306.5,
+    "total": 233656.5,
+    "fecha": "2026-05-25T02:01:34.825Z"
+  },
+  {
+    "idVenta": 6,
+    "vendedor": "Adony Molina",
+    "ciudad": "Cucuta",
+    "cliente": "Ciro Granados",
+    "tipoDocumento": "FVP",
+    "factura": "00334",
+    "carrito": [
+      {
+        "id": 2,
+        "nombre": "Bascula 150kg bernalo wifi",
+        "categoria": "Basculas",
+        "precio": 400,
+        "cantidad": 800,
+        "ubicacion": "Estante A2",
+        "stockMinimo": 200,
+        "subtotal": 320000
+      }
+    ],
+    "subtotal": 320000,
+    "iva": 60800,
+    "total": 380800,
+    "fecha": "2026-05-25T02:05:22.290Z"
   }
 ]
