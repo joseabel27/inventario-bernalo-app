@@ -288,5 +288,14 @@
     "cantidad": 91,
     "ubicacion": "Estante C3",
     "stockMinimo": 50
+  },
+  {
+    "id": 33,
+    "nombre": "Celda de carga 40kg",
+    "categoria": "Celdas",
+    "precio": 80000,
+    "cantidad": 99,
+    "ubicacion": "Estante E2",
+    "stockMinimo": 100
   }
 ]

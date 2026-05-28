@@ -203,5 +203,32 @@
     "fecha": "2026-05-28T04:00:30.470Z",
     "estado": "Despachado",
     "numeroGuia": "700345654"
+  },
+  {
+    "idVenta": 8,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Quibdo",
+    "cliente": "jose",
+    "tipoDocumento": "DESP",
+    "factura": "1109",
+    "carrito": [
+      {
+        "id": 33,
+        "nombre": "Celda de carga 40kg",
+        "categoria": "Celdas",
+        "precio": 80000,
+        "cantidad": 101,
+        "ubicacion": "Estante E2",
+        "stockMinimo": 100,
+        "subtotal": 8080000
+      }
+    ],
+    "subtotal": 8080000,
+    "iva": 1535200,
+    "total": 9615200,
+    "fecha": "2026-05-28T16:07:38.846Z",
+    "estado": "Despachado",
+    "numeroGuia": "8124981248",
+    "transportadora": "Estelar Expres"
   }
 ]
