@@ -202,7 +202,7 @@
     "nombre": "Balanza Bernalo Color Azul 40kg",
     "categoria": "Basculas",
     "precio": 220,
-    "cantidad": 180,
+    "cantidad": 164,
     "ubicacion": "Estante B1",
     "stockMinimo": 150,
     "imagen": "https://res.cloudinary.com/dgliob42g/image/upload/q_auto/f_auto/v1777177070/40kgcolor_bcppyi.webp"
@@ -278,6 +278,15 @@
     "precio": 180000,
     "cantidad": 100,
     "ubicacion": "Estante D2",
+    "stockMinimo": 50
+  },
+  {
+    "id": 32,
+    "nombre": "Balanza Css 30kg",
+    "categoria": "Basculas",
+    "precio": 400000,
+    "cantidad": 91,
+    "ubicacion": "Estante C3",
     "stockMinimo": 50
   }
 ]

@@ -1,15 +1,15 @@
-import  express from "express";
-import cors  from "cors";
+import express from "express";
+import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
 import {
-  
+
   obtenerInventario,
   agregarProductos,
   eliminarProducto,
   listarProductos
-  
+
 } from "./modules/inventario.js";
 
 import {
@@ -52,8 +52,8 @@ app.post("/api/inventario", (req, res) => {
 
     // Verificamos que todos los datos estén presentes
     if (!nombre || !categoria || precio === undefined || cantidad === undefined || !ubicacion || stockMinimo === undefined) {
-      return res.status(400).json({ 
-        error: "Faltan datos requeridos. Se necesita: nombre, categoria, precio, cantidad, ubicacion, stockMinimo" 
+      return res.status(400).json({
+        error: "Faltan datos requeridos. Se necesita: nombre, categoria, precio, cantidad, ubicacion, stockMinimo"
       });
     }
 
@@ -61,9 +61,9 @@ app.post("/api/inventario", (req, res) => {
     const resultado = agregarProductos(nombre, categoria, precio, cantidad, ubicacion, stockMinimo);
 
     if (resultado.exito) {
-      res.status(201).json({ 
+      res.status(201).json({
         mensaje: resultado.mensaje,
-        producto: resultado.producto 
+        producto: resultado.producto
       });
     } else {
       res.status(400).json({ error: resultado.mensaje });
@@ -170,7 +170,10 @@ app.put("/api/ventas/:id/despachar", (req, res) => {
 
     const idVenta = Number(req.params.id);
 
-    const { numeroGuia } = req.body;
+    const {
+      numeroGuia,
+      transportadora
+    } = req.body;
 
     const ventas = obtenerVentas();
 
@@ -190,6 +193,7 @@ app.put("/api/ventas/:id/despachar", (req, res) => {
     ventas[index].estado = "Despachado";
 
     ventas[index].numeroGuia = numeroGuia;
+    ventas[index].transportadora = transportadora;
 
     guardarVentas(ventas);
 
@@ -209,7 +213,7 @@ app.put("/api/ventas/:id/despachar", (req, res) => {
 
 });
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
 
-    console.log(`Servidor Backend Funcionando en http://localhost:${PORT}`);
+  console.log(`Servidor Backend Funcionando en http://localhost:${PORT}`);
 });
