@@ -107,6 +107,11 @@ export function registrarVenta(datosVenta) {
     // =========================
     for (const item of carrito) {
 
+         // IGNORAR SERVICIOS
+  if (item.tipo === "servicio") {
+    continue;
+  }
+
         const producto = buscarProductoPorId(item.id);
 
         if (!producto) {

@@ -230,5 +230,50 @@
     "estado": "Despachado",
     "numeroGuia": "8124981248",
     "transportadora": "Estelar Expres"
+  },
+  {
+    "idVenta": 9,
+    "vendedor": "Jose Romero",
+    "ciudad": "Medellin",
+    "cliente": "Bernardo Villegas",
+    "tipoDocumento": "DESP",
+    "factura": "12233",
+    "carrito": [
+      {
+        "id": 34,
+        "nombre": "Bateria 4 voltios",
+        "categoria": "Repuestos",
+        "precio": 16000,
+        "cantidad": 10,
+        "ubicacion": "Estante B2",
+        "stockMinimo": 1000,
+        "subtotal": 160000
+      },
+      {
+        "id": 8,
+        "nombre": "Balanza Css 15kg",
+        "categoria": "Balanzas",
+        "precio": 450,
+        "cantidad": 50,
+        "ubicacion": "Estante E1",
+        "stockMinimo": 40,
+        "subtotal": 22500
+      },
+      {
+        "id": 1780024063082,
+        "tipo": "servicio",
+        "nombre": "Servicio Tecnico Css 15 kg",
+        "precio": 120000,
+        "cantidad": 1,
+        "subtotal": 120000
+      }
+    ],
+    "subtotal": 182500,
+    "iva": 34675,
+    "total": 217175,
+    "fecha": "2026-05-29T03:08:01.435Z",
+    "estado": "Despachado",
+    "numeroGuia": "345666765",
+    "transportadora": "Servi Entrega"
   }
 ]

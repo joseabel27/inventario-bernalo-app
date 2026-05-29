@@ -67,7 +67,7 @@
     "nombre": "Balanza Css 15kg",
     "categoria": "Balanzas",
     "precio": 450,
-    "cantidad": 90,
+    "cantidad": 40,
     "ubicacion": "Estante E1",
     "stockMinimo": 40
   },
@@ -297,5 +297,14 @@
     "cantidad": 99,
     "ubicacion": "Estante E2",
     "stockMinimo": 100
+  },
+  {
+    "id": 34,
+    "nombre": "Bateria 4 voltios",
+    "categoria": "Repuestos",
+    "precio": 16000,
+    "cantidad": 1980,
+    "ubicacion": "Estante B2",
+    "stockMinimo": 1000
   }
 ]
