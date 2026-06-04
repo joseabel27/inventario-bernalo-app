@@ -294,7 +294,7 @@
     "nombre": "Celda de carga 40kg",
     "categoria": "Celdas",
     "precio": 80000,
-    "cantidad": 99,
+    "cantidad": 79,
     "ubicacion": "Estante E2",
     "stockMinimo": 100
   },
@@ -303,7 +303,16 @@
     "nombre": "Bateria 4 voltios",
     "categoria": "Repuestos",
     "precio": 16000,
-    "cantidad": 1980,
+    "cantidad": 1970,
+    "ubicacion": "Estante B2",
+    "stockMinimo": 1000
+  },
+  {
+    "id": 35,
+    "nombre": "Bateria 6 voltios",
+    "categoria": "Repuestos",
+    "precio": 17000,
+    "cantidad": 1900,
     "ubicacion": "Estante B2",
     "stockMinimo": 1000
   }

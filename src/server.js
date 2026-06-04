@@ -16,7 +16,10 @@ import {
   registrarVenta,
   listarVentas,
   obtenerVentas,
-  guardarVentas
+  guardarVentas,
+  buscarVentaPorId,
+  actualizarVenta,
+  eliminarVenta
 } from "./modules/ventas.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -128,6 +131,33 @@ app.get("/api/ventas", (req, res) => {
 });
 
 
+app.get("/api/ventas/:id", (req, res) => {
+
+  try {
+
+    const venta = buscarVentaPorId(req.params.id);
+
+    if (!venta) {
+
+      return res.status(404).json({
+        mensaje: "Venta no encontrada"
+      });
+
+    }
+
+    res.json(venta);
+
+  } catch (error) {
+
+    res.status(500).json({
+      mensaje: error.message
+    });
+
+  }
+
+});
+
+
 // ======================================
 // REGISTRAR VENTA
 // ======================================
@@ -146,6 +176,64 @@ app.post("/api/ventas", (req, res) => {
     }
 
     res.status(201).json(resultado);
+
+  } catch (error) {
+
+    res.status(500).json({
+      mensaje: error.message
+    });
+
+  }
+
+});
+
+app.put("/api/ventas/:id", (req, res) => {
+
+  try {
+
+    const resultado = actualizarVenta(
+      req.params.id,
+      req.body
+    );
+
+    if (!resultado.exito) {
+
+      return res.status(404).json({
+        mensaje: resultado.mensaje
+      });
+
+    }
+
+    res.json(resultado);
+
+  } catch (error) {
+
+    res.status(500).json({
+      mensaje: error.message
+    });
+
+  }
+
+});
+
+
+app.delete("/api/ventas/:id", (req, res) => {
+
+  try {
+
+    const resultado = eliminarVenta(
+      req.params.id
+    );
+
+    if (!resultado.exito) {
+
+      return res.status(404).json({
+        mensaje: resultado.mensaje
+      });
+
+    }
+
+    res.json(resultado);
 
   } catch (error) {
 

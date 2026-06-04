@@ -275,5 +275,117 @@
     "estado": "Despachado",
     "numeroGuia": "345666765",
     "transportadora": "Servi Entrega"
+  },
+  {
+    "idVenta": 10,
+    "vendedor": "José Romero",
+    "ciudad": "Barranquilla",
+    "cliente": "Carlos Marin",
+    "tipoDocumento": "FVP",
+    "factura": "5432",
+    "carrito": [
+      {
+        "id": 35,
+        "nombre": "Bateria 6 voltios",
+        "categoria": "Repuestos",
+        "precio": 17000,
+        "cantidad": 40,
+        "ubicacion": "Estante B2",
+        "stockMinimo": 1000,
+        "subtotal": 680000
+      },
+      {
+        "id": 34,
+        "nombre": "Bateria 4 voltios",
+        "categoria": "Repuestos",
+        "precio": 16000,
+        "cantidad": 10,
+        "ubicacion": "Estante B2",
+        "stockMinimo": 1000,
+        "subtotal": 160000
+      },
+      {
+        "id": 1780077789807,
+        "tipo": "servicio",
+        "nombre": "Flete Envio ",
+        "precio": 50000,
+        "cantidad": 1,
+        "subtotal": 50000
+      },
+      {
+        "id": 1780077827358,
+        "tipo": "servicio",
+        "nombre": "Servicio Técnico Balanza Bernalito 150kg",
+        "precio": 120000,
+        "cantidad": 1,
+        "subtotal": 120000
+      }
+    ],
+    "subtotal": 840000,
+    "iva": 159600,
+    "total": 999600,
+    "fecha": "2026-05-29T18:04:08.746Z",
+    "estado": "Despachado",
+    "numeroGuia": "7654332",
+    "transportadora": "Los Cachacos"
+  },
+  {
+    "idVenta": 11,
+    "vendedor": "Camilo Murillo",
+    "ciudad": "Cartagena",
+    "cliente": "Teodolfo Pachon",
+    "tipoDocumento": "FVP",
+    "factura": "9876",
+    "carrito": [
+      {
+        "id": 33,
+        "nombre": "Celda de carga 40kg",
+        "categoria": "Celdas",
+        "precio": 80000,
+        "cantidad": 20,
+        "ubicacion": "Estante E2",
+        "stockMinimo": 100,
+        "subtotal": 1600000
+      }
+    ],
+    "subtotal": 1600000,
+    "iva": 304000,
+    "total": 1904000,
+    "fecha": "2026-05-29T18:26:27.643Z",
+    "estado": "Despachado",
+    "numeroGuia": "1",
+    "transportadora": "Jhonatan"
+  },
+  {
+    "idVenta": 12,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Pereira",
+    "cliente": "Ivan Hoyos",
+    "tipoDocumento": "FVP",
+    "factura": "3432",
+    "carrito": [
+      {
+        "id": 35,
+        "nombre": "Bateria 6 voltios",
+        "categoria": "Repuestos",
+        "precio": 17000,
+        "cantidad": 60,
+        "ubicacion": "Estante B2",
+        "stockMinimo": 1000,
+        "subtotal": 1020000
+      },
+      {
+        "id": 1780580034789,
+        "tipo": "servicio",
+        "nombre": "Servicio Tecnico Wifi 150 Bernalo",
+        "precio": 120000,
+        "cantidad": 1,
+        "subtotal": 120000
+      }
+    ],
+    "subtotal": 1020000,
+    "iva": 193800,
+    "total": 1213800,
+    "fecha": "2026-06-04T13:34:11.536Z"
   }
 ]

@@ -211,3 +211,67 @@ export function listarVentas() {
 
     return ventas;
 }
+
+export function buscarVentaPorId(idVenta) {
+
+    return ventas.find(
+        venta => venta.idVenta === Number(idVenta)
+    );
+
+}
+
+export function eliminarVenta(idVenta) {
+
+    const indice = ventas.findIndex(
+        venta => venta.idVenta === Number(idVenta)
+    );
+
+    if (indice === -1) {
+
+        return {
+            exito: false,
+            mensaje: "Venta no encontrada"
+        };
+
+    }
+
+    ventas.splice(indice, 1);
+
+    guardarVentasDesdeArchivo();
+
+    return {
+        exito: true,
+        mensaje: "Venta eliminada correctamente"
+    };
+
+}
+
+export function actualizarVenta(idVenta, datosActualizados) {
+
+    const indice = ventas.findIndex(
+        venta => venta.idVenta === Number(idVenta)
+    );
+
+    if (indice === -1) {
+
+        return {
+            exito: false,
+            mensaje: "Venta no encontrada"
+        };
+
+    }
+
+    ventas[indice] = {
+        ...ventas[indice],
+        ...datosActualizados
+    };
+
+    guardarVentasDesdeArchivo();
+
+    return {
+        exito: true,
+        mensaje: "Venta actualizada correctamente",
+        venta: ventas[indice]
+    };
+
+}
