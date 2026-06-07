@@ -31,7 +31,7 @@
     "nombre": "Bascula 150kg bernalito wifi",
     "categoria": "Basculas",
     "precio": 300.7,
-    "cantidad": 500,
+    "cantidad": 400,
     "ubicacion": "Estante B1",
     "stockMinimo": 245
   },
@@ -103,7 +103,7 @@
     "nombre": "Pelas papas",
     "categoria": "Horeca",
     "precio": 150,
-    "cantidad": 100,
+    "cantidad": 50,
     "ubicacion": "Estante H2",
     "stockMinimo": 45
   },
@@ -130,7 +130,7 @@
     "nombre": "Celda de carga 200kg",
     "categoria": "Celdas",
     "precio": 40,
-    "cantidad": 200,
+    "cantidad": 150,
     "ubicacion": "Estanteria H1",
     "stockMinimo": 95
   },
@@ -148,7 +148,7 @@
     "nombre": "Adaptador Super SS",
     "categoria": "Adaptadores",
     "precio": 50,
-    "cantidad": 100,
+    "cantidad": 80,
     "ubicacion": "Estante J2",
     "stockMinimo": 45
   },
@@ -276,7 +276,7 @@
     "nombre": "Indicador X1",
     "categoria": "Repuestos",
     "precio": 180000,
-    "cantidad": 100,
+    "cantidad": 50,
     "ubicacion": "Estante D2",
     "stockMinimo": 50
   },
@@ -303,7 +303,7 @@
     "nombre": "Bateria 4 voltios",
     "categoria": "Repuestos",
     "precio": 16000,
-    "cantidad": 1970,
+    "cantidad": 1900,
     "ubicacion": "Estante B2",
     "stockMinimo": 1000
   },
@@ -312,7 +312,7 @@
     "nombre": "Bateria 6 voltios",
     "categoria": "Repuestos",
     "precio": 17000,
-    "cantidad": 1900,
+    "cantidad": 1800,
     "ubicacion": "Estante B2",
     "stockMinimo": 1000
   }

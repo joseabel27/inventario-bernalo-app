@@ -107,6 +107,10 @@ export function registrarVenta(datosVenta) {
     // =========================
     for (const item of carrito) {
 
+
+        // SUMAR SUBTOTAL
+        subtotal += item.precio * item.cantidad;
+
          // IGNORAR SERVICIOS
   if (item.tipo === "servicio") {
     continue;
@@ -136,13 +140,13 @@ export function registrarVenta(datosVenta) {
 
         actualizarProducto(producto.id, producto);
 
-        // SUMAR SUBTOTAL
-        subtotal += item.precio * item.cantidad;
+        
     }
 
     // =========================
     // IVA Y TOTAL
     // =========================
+  
     const iva = subtotal * 0.19;
 
     const total = subtotal + iva;

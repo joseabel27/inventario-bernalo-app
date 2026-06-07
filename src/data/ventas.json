@@ -49,26 +49,6 @@
     "factura": "87909",
     "carrito": [
       {
-        "id": 11,
-        "nombre": "Celda de carga 400kg",
-        "categoria": "Celdas",
-        "precio": 85,
-        "cantidad": 5,
-        "ubicacion": "Estanteria H1",
-        "stockMinimo": 150,
-        "subtotal": 425
-      },
-      {
-        "id": 30,
-        "nombre": "Indicador X0",
-        "categoria": "Repuestos",
-        "precio": 160000,
-        "cantidad": 10,
-        "ubicacion": "Estante D2",
-        "stockMinimo": 25,
-        "subtotal": 1600000
-      },
-      {
         "id": 23,
         "nombre": "Balanza Bernalo Color Azul 40kg",
         "categoria": "Basculas",
@@ -80,9 +60,9 @@
         "subtotal": 2200
       }
     ],
-    "subtotal": 1602625,
-    "iva": 304498.75,
-    "total": 1907123.75,
+    "subtotal": 2200,
+    "iva": 418,
+    "total": 2618,
     "fecha": "2026-05-21T15:13:52.085Z",
     "estado": "Despachado",
     "numeroGuia": "700043211",
@@ -176,16 +156,6 @@
     "factura": "1194",
     "carrito": [
       {
-        "id": 32,
-        "nombre": "Balanza Css 30kg",
-        "categoria": "Basculas",
-        "precio": 400000,
-        "cantidad": 10,
-        "ubicacion": "Estante C3",
-        "stockMinimo": 50,
-        "subtotal": 4000000
-      },
-      {
         "id": 23,
         "nombre": "Balanza Bernalo Color Azul 40kg",
         "categoria": "Basculas",
@@ -197,9 +167,9 @@
         "subtotal": 3520
       }
     ],
-    "subtotal": 4003520,
-    "iva": 760668.8,
-    "total": 4764188.8,
+    "subtotal": 3520,
+    "iva": 668.8,
+    "total": 4188.8,
     "fecha": "2026-05-28T04:00:30.470Z",
     "estado": "Despachado",
     "numeroGuia": "700345654"
@@ -207,7 +177,7 @@
   {
     "idVenta": 8,
     "vendedor": "Marlon Castañeda",
-    "ciudad": "Quibdo",
+    "ciudad": "Facativa",
     "cliente": "jose",
     "tipoDocumento": "DESP",
     "factura": "1109",
@@ -365,16 +335,6 @@
     "factura": "3432",
     "carrito": [
       {
-        "id": 35,
-        "nombre": "Bateria 6 voltios",
-        "categoria": "Repuestos",
-        "precio": 17000,
-        "cantidad": 60,
-        "ubicacion": "Estante B2",
-        "stockMinimo": 1000,
-        "subtotal": 1020000
-      },
-      {
         "id": 1780580034789,
         "tipo": "servicio",
         "nombre": "Servicio Tecnico Wifi 150 Bernalo",
@@ -383,9 +343,63 @@
         "subtotal": 120000
       }
     ],
-    "subtotal": 1020000,
-    "iva": 193800,
-    "total": 1213800,
-    "fecha": "2026-06-04T13:34:11.536Z"
+    "subtotal": 120000,
+    "iva": 22800,
+    "total": 142800,
+    "fecha": "2026-06-04T13:34:11.536Z",
+    "estado": "Despachado",
+    "numeroGuia": "766547",
+    "transportadora": "Z-Expres"
+  },
+  {
+    "idVenta": 16,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Sonson",
+    "cliente": "Maria Avila",
+    "tipoDocumento": "FVP",
+    "factura": "0987",
+    "carrito": [
+      {
+        "id": 4,
+        "nombre": "Bascula 150kg bernalito wifi",
+        "categoria": "Basculas",
+        "precio": 300.7,
+        "cantidad": 100,
+        "ubicacion": "Estante B1",
+        "stockMinimo": 245,
+        "subtotal": 30070
+      }
+    ],
+    "subtotal": 30070,
+    "iva": 5713.3,
+    "total": 35783.3,
+    "fecha": "2026-06-07T04:27:59.111Z",
+    "estado": "Despachado",
+    "numeroGuia": "1",
+    "transportadora": "Jhonatan"
+  },
+  {
+    "idVenta": 17,
+    "vendedor": "Marlon Castañeda",
+    "ciudad": "Facativa",
+    "cliente": "milton rodriguez",
+    "tipoDocumento": "FVP",
+    "factura": "3232",
+    "carrito": [
+      {
+        "id": 17,
+        "nombre": "Adaptador Super SS",
+        "categoria": "Adaptadores",
+        "precio": 50,
+        "cantidad": 20,
+        "ubicacion": "Estante J2",
+        "stockMinimo": 45,
+        "subtotal": 1000
+      }
+    ],
+    "subtotal": 1000,
+    "iva": 190,
+    "total": 1190,
+    "fecha": "2026-06-07T06:01:19.608Z"
   }
 ]

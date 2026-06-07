@@ -5,5 +5,12 @@
     "motivo": "Display defectuoso",
     "vendedor": "Adony",
     "fecha": "2025-11-03T01:12:24.240Z"
+  },
+  {
+    "id": 18,
+    "cantidad": 5,
+    "motivo": "Display defectuoso",
+    "vendedor": "Adony",
+    "fecha": "2026-06-07T04:54:27.545Z"
   }
 ]
