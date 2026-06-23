@@ -256,6 +256,7 @@ export function actualizarVenta(idVenta, datosActualizados) {
         venta => venta.idVenta === Number(idVenta)
     );
 
+
     if (indice === -1) {
 
         return {
@@ -265,17 +266,145 @@ export function actualizarVenta(idVenta, datosActualizados) {
 
     }
 
+
+    const ventaAnterior = ventas[indice];
+
+
+    // ======================================
+    // AJUSTAR INVENTARIO POR CAMBIO DE CANTIDADES
+    // ======================================
+
+    const carritoAnterior = ventaAnterior.carrito || [];
+    const carritoNuevo = datosActualizados.carrito || [];
+
+
+    // DEVOLVER O DESCONTAR SEGÚN DIFERENCIA
+
+    carritoAnterior.forEach(productoAnterior => {
+
+
+        // Ignorar servicios
+        if (productoAnterior.tipo === "servicio") {
+            return;
+        }
+
+
+        const productoNuevo = carritoNuevo.find(
+            p => p.id === productoAnterior.id
+        );
+
+
+        const cantidadNueva = productoNuevo
+            ? productoNuevo.cantidad
+            : 0;
+
+
+        const diferencia =
+            productoAnterior.cantidad - cantidadNueva;
+
+
+
+        if (diferencia !== 0) {
+
+
+            const productoInventario =
+                buscarProductoPorId(productoAnterior.id);
+
+
+
+            if (productoInventario) {
+
+
+                // Si diferencia positiva devuelve stock
+                // Si diferencia negativa descuenta stock
+
+                productoInventario.cantidad += diferencia;
+
+
+                actualizarProducto(
+                    productoInventario.id,
+                    productoInventario
+                );
+
+            }
+
+        }
+
+
+    });
+
+
+
+    // ======================================
+    // AGREGAR PRODUCTOS NUEVOS A INVENTARIO
+    // ======================================
+
+    carritoNuevo.forEach(productoNuevo => {
+
+
+        if (productoNuevo.tipo === "servicio") {
+            return;
+        }
+
+
+        const existiaAntes =
+            carritoAnterior.find(
+                p => p.id === productoNuevo.id
+            );
+
+
+        if (!existiaAntes) {
+
+
+            const productoInventario =
+                buscarProductoPorId(productoNuevo.id);
+
+
+
+            if(productoInventario){
+
+
+                productoInventario.cantidad -= productoNuevo.cantidad;
+
+
+                actualizarProducto(
+                    productoInventario.id,
+                    productoInventario
+                );
+
+            }
+
+        }
+
+    });
+
+
+
+    // ======================================
+    // GUARDAR CAMBIOS FACTURA
+    // ======================================
+
+
     ventas[indice] = {
+
         ...ventas[indice],
+
         ...datosActualizados
+
     };
+
 
     guardarVentasDesdeArchivo();
 
+
     return {
-        exito: true,
-        mensaje: "Venta actualizada correctamente",
-        venta: ventas[indice]
+
+        exito:true,
+
+        mensaje:"Venta actualizada correctamente",
+
+        venta:ventas[indice]
+
     };
 
 }

@@ -401,5 +401,37 @@
     "iva": 190,
     "total": 1190,
     "fecha": "2026-06-07T06:01:19.608Z"
+  },
+  {
+    "idVenta": 18,
+    "vendedor": "Camilo Murillo",
+    "ciudad": "Cucuta",
+    "cliente": "Albeiro Arias",
+    "tipoDocumento": "FVP",
+    "factura": "4323",
+    "carrito": [
+      {
+        "id": 34,
+        "nombre": "Bateria 4 voltios",
+        "categoria": "Repuestos",
+        "precio": 16000,
+        "cantidad": 800,
+        "ubicacion": "Estante B2",
+        "stockMinimo": 1000,
+        "subtotal": 12800000
+      },
+      {
+        "id": 1782238698237,
+        "tipo": "servicio",
+        "nombre": "Flete",
+        "precio": 200000,
+        "cantidad": 1,
+        "subtotal": 200000
+      }
+    ],
+    "subtotal": 13000000,
+    "iva": 2470000,
+    "total": 15470000,
+    "fecha": "2026-06-23T18:18:30.829Z"
   }
 ]

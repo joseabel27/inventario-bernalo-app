@@ -303,7 +303,7 @@
     "nombre": "Bateria 4 voltios",
     "categoria": "Repuestos",
     "precio": 16000,
-    "cantidad": 1900,
+    "cantidad": 1100,
     "ubicacion": "Estante B2",
     "stockMinimo": 1000
   },
